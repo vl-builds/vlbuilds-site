@@ -97,7 +97,8 @@ function Eyebrow({ children }) {
 function Hero({ t }) {
   return (
     <section style={{ minHeight: '100vh', padding: '0 40px 80px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%' }}>
+      <div className="vl-hero-bg" aria-hidden="true" />
+      <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
 
         <Reveal type="fadeIn" delay={0.05}>
           <div style={{
@@ -152,7 +153,7 @@ function Hero({ t }) {
         </Reveal>
       </div>
 
-      <div style={{ position: 'absolute', bottom: 0, left: 40, right: 40, height: 1, background: BORDER }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 40, right: 40, height: 1, background: BORDER, zIndex: 1 }} />
 
       <style>{`
         @keyframes vlpulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
