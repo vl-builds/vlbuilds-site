@@ -3,17 +3,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
-
-const NAV_LINKS = [
-  { label: 'Serviços',  href: '#servicos' },
-  { label: 'Trabalhos', href: '#trabalhos' },
-  { label: 'Processo',  href: '#processo' },
-  { label: 'FAQ',       href: '#faq' },
-];
-
-const FONT = 'var(--font-display)';
+import LangSwitcher from './LangSwitcher';
+import { useLocale } from '../contexts/LocaleContext';
 
 export default function Header() {
+  const { t } = useLocale();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,6 +15,13 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const NAV_LINKS = [
+    { label: t.nav.services, href: '#servicos' },
+    { label: t.nav.work,     href: '#trabalhos' },
+    { label: t.nav.process,  href: '#processo' },
+    { label: t.nav.faq,      href: '#faq' },
+  ];
 
   return (
     <motion.header
@@ -49,7 +50,7 @@ export default function Header() {
     >
       {/* logo */}
       <a href="#" style={{
-        fontFamily: FONT,
+        fontFamily: 'var(--font-display)',
         fontSize: 15,
         fontWeight: 700,
         color: 'var(--color-fg)',
@@ -66,7 +67,7 @@ export default function Header() {
             key={link.href}
             href={link.href}
             style={{
-              fontFamily: FONT,
+              fontFamily: 'var(--font-display)',
               color: 'var(--color-fg-2)',
               fontSize: 13,
               fontWeight: 400,
@@ -85,11 +86,12 @@ export default function Header() {
 
       {/* actions */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <LangSwitcher />
         <ThemeToggle />
         <a
           href="#contato"
           style={{
-            fontFamily: FONT,
+            fontFamily: 'var(--font-display)',
             background: 'var(--color-accent)',
             color: 'var(--color-on-accent)',
             fontSize: 13,
@@ -103,7 +105,7 @@ export default function Header() {
           onMouseEnter={e => { e.target.style.opacity = '0.85'; }}
           onMouseLeave={e => { e.target.style.opacity = '1'; }}
         >
-          Fale comigo
+          {t.nav.cta}
         </a>
       </div>
 

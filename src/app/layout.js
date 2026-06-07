@@ -1,4 +1,5 @@
 import './globals.css';
+import ClientProviders from './components/ClientProviders';
 
 export const metadata = {
   title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body><ClientProviders>{children}</ClientProviders></body>
     </html>
   );
 }

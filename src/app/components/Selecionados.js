@@ -2,55 +2,11 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Reveal } from './Reveal';
-
-const PROJETOS = [
-  {
-    cat: 'Site',
-    titulo: 'Landing Page SaaS',
-    desc: 'Alta conversão, dark mode, animações com Framer Motion. Feita para converter visitante em cliente.',
-    tags: ['Next.js', 'Tailwind', 'Framer Motion'],
-    img: null,
-  },
-  {
-    cat: 'IA',
-    titulo: 'Assistente de Atendimento',
-    desc: 'Chatbot Claude AI integrado ao WhatsApp da empresa. Responde dúvidas, qualifica leads e agenda reuniões 24/7.',
-    tags: ['Claude API', 'WhatsApp', 'Node.js'],
-    img: null,
-  },
-  {
-    cat: 'Planilha',
-    titulo: 'Dashboard de Vendas',
-    desc: 'Metas, gráficos dinâmicos e relatório automático por email. Eliminou 3h semanais de trabalho manual.',
-    tags: ['Google Sheets', 'Apps Script', 'Looker Studio'],
-    img: null,
-  },
-  {
-    cat: 'Site',
-    titulo: 'Portfólio Criativo',
-    desc: 'Identidade visual forte, animações ricas e carregamento otimizado. Nota 97 no Lighthouse.',
-    tags: ['Next.js', 'GSAP', 'Cloudflare'],
-    img: null,
-  },
-  {
-    cat: 'Ferramenta',
-    titulo: 'Gerador de Propostas',
-    desc: 'Formulário → PDF personalizado gerado automaticamente. Economiza 45 min por proposta enviada.',
-    tags: ['React', 'PDF.js', 'Web3Forms'],
-    img: null,
-  },
-  {
-    cat: 'IA',
-    titulo: 'Resumidor de Reuniões',
-    desc: 'Grava, transcreve e resume com GPT-4o em < 60 segundos. Integrado ao Notion do cliente.',
-    tags: ['GPT-4o', 'Whisper', 'Notion API'],
-    img: null,
-  },
-];
+import { useLocale } from '../contexts/LocaleContext';
 
 const AUTOPLAY_MS = 4500;
 
-function FeatVisual({ projeto }) {
+function FeatVisual({ projeto, soon }) {
   return (
     <div style={{
       width: '100%',
@@ -84,7 +40,7 @@ function FeatVisual({ projeto }) {
               <path d="M8 21h8M12 17v4"/>
             </svg>
             <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              em breve
+              {soon}
             </span>
           </div>
       }
@@ -108,6 +64,10 @@ function FeatVisual({ projeto }) {
 }
 
 export default function PortfolioSection() {
+  const { t } = useLocale();
+  const p_t = t.portfolio;
+  const PROJETOS = p_t.items.map(item => ({ ...item, img: null }));
+
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [progKey, setProgKey] = useState(0);
@@ -162,7 +122,7 @@ export default function PortfolioSection() {
             color: 'var(--color-fg-2)',
             marginBottom: 24,
           }}>
-            Holofote
+            {p_t.eyebrow}
             <span style={{ flex: 1, height: 1, background: 'var(--color-border)', display: 'block' }} />
           </div>
 
@@ -175,7 +135,7 @@ export default function PortfolioSection() {
               lineHeight: 0.95,
               color: 'var(--color-fg)',
             }}>
-              Selecionados
+              {p_t.heading}
             </h2>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <button
@@ -232,12 +192,10 @@ export default function PortfolioSection() {
           gap: 48,
           alignItems: 'start',
           animation: 'vlTrabSlide .35s cubic-bezier(0.44,0,0.56,1)',
-        }} key={active}>
+        }} key={`${active}-${t.portfolio.heading}`}>
 
-          {/* visual */}
-          <FeatVisual projeto={p} />
+          <FeatVisual projeto={p} soon={p_t.soon} />
 
-          {/* copy */}
           <div style={{ paddingTop: 8 }}>
             <div style={{
               fontFamily: 'var(--font-display)',
@@ -288,7 +246,6 @@ export default function PortfolioSection() {
               ))}
             </div>
 
-            {/* progress dots */}
             <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
               {PROJETOS.map((_, i) => (
                 <button
@@ -338,7 +295,7 @@ export default function PortfolioSection() {
           to   { width: 100%; }
         }
         @media (max-width: 860px) {
-          #trabalhos .vl-trab-grid { grid-template-columns: 1fr !important; }
+          #trabalhos > div > div:last-child { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
