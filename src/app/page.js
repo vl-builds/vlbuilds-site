@@ -267,8 +267,8 @@ function StatsSection({ t }) {
           background: BORDER,
           border: `1px solid ${BORDER}`,
         }}>
-          {t.stats.map(s => (
-            <StaggerItem key={s.label} variant="pop">
+          {t.stats.map((s, i) => (
+            <StaggerItem key={i} variant="pop">
               <div style={{ background: BG, padding: '40px 32px', textAlign: 'center' }}>
                 <div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 4.5rem)', letterSpacing: '-0.04em', color: FG, lineHeight: 1, marginBottom: 8 }}>{s.val}</div>
                 <div style={{ fontFamily: BODY, fontSize: 12, color: MUTED, letterSpacing: '0.05em', textTransform: 'uppercase' }}>{s.label}</div>
@@ -320,8 +320,8 @@ function FaqSection({ t }) {
         </Reveal>
 
         <StaggerContainer>
-          {f.items.map(faq => (
-            <StaggerItem key={faq.q} variant="fadeIn">
+          {f.items.map((faq, i) => (
+            <StaggerItem key={i} variant="fadeIn">
               <details style={{ borderTop: `1px solid ${BORDER}` }}>
                 <summary
                   style={{ fontFamily: DISPLAY, padding: '24px 0', fontSize: 16, fontWeight: 600, color: FG, cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', letterSpacing: '-0.01em', userSelect: 'none', transition: 'color 0.2s' }}
