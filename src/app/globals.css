@@ -89,13 +89,13 @@ button { font-family: inherit; cursor: pointer; }
 [data-theme="dark"] .vl-hero-bg {
   background-image:
     linear-gradient(to top, #080808 0%, rgba(8,8,8,0.70) 40%, rgba(8,8,8,0.20) 100%),
-    url(/hero-dark.webp);
+    url(/hero-dark.png);
 }
 
 [data-theme="light"] .vl-hero-bg {
   background-image:
     linear-gradient(to top, #f4f2ee 0%, rgba(244,242,238,0.72) 40%, rgba(244,242,238,0.18) 100%),
-    url(/hero-light.webp);
+    url(/hero-light.png);
 }
 
 @keyframes vlHeroBgFadeIn {
