@@ -2,6 +2,7 @@
 
 import Header from './components/Header';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
+import PortfolioSection from './components/Selecionados';
 
 /* ─── dados ─── */
 
@@ -17,15 +18,6 @@ const PROCESSO = [
   { n: '01', titulo: 'Briefing',   desc: 'Entendemos o seu objetivo, público e prazo em detalhe.' },
   { n: '02', titulo: 'Construção', desc: 'Desenvolvemos com atualizações regulares. Você acompanha tudo.' },
   { n: '03', titulo: 'Entrega',    desc: 'Revisões até aprovar. Código limpo, documentado, seu.' },
-];
-
-const PORTFOLIO = [
-  { cat: 'Site',       titulo: 'Landing Page SaaS',        desc: 'Alta conversão, dark mode, animações.' },
-  { cat: 'IA',         titulo: 'Assistente de Atendimento', desc: 'Chatbot Claude AI no WhatsApp, 24/7.' },
-  { cat: 'Planilha',   titulo: 'Dashboard de Vendas',       desc: 'Metas, gráficos e relatório automático.' },
-  { cat: 'Site',       titulo: 'Portfólio Criativo',        desc: 'Identidade visual forte, animações ricas.' },
-  { cat: 'Ferramenta', titulo: 'Gerador de Propostas',      desc: 'Form → PDF gerado automaticamente.' },
-  { cat: 'IA',         titulo: 'Resumidor de Reuniões',     desc: 'Transcreve e resume com GPT-4o.' },
 ];
 
 const STATS = [
@@ -44,14 +36,15 @@ const FAQS = [
 ];
 
 /* ─── design tokens inline ─── */
-const DISPLAY = "'Space Grotesk', sans-serif";
-const BODY    = "'DM Sans', sans-serif";
-const ACCENT  = '#FF3D00';
-const FG      = '#f0f0f0';
-const MUTED   = '#666666';
-const BG      = '#080808';
-const BG1     = '#0d0d0d';
-const BORDER  = 'rgba(255,255,255,0.07)';
+const DISPLAY = 'var(--font-display)';
+const BODY    = 'var(--font-body)';
+const ACCENT  = 'var(--color-accent)';
+const FG      = 'var(--color-fg)';
+const MUTED   = 'var(--color-fg-2)';
+const BG      = 'var(--color-bg)';
+const BG1     = 'var(--color-bg-1)';
+const BORDER  = 'var(--color-border)';
+const BORDER1 = 'var(--color-border-1)';
 
 const W = { maxWidth: 1200, margin: '0 auto', padding: '0 40px' };
 
@@ -67,14 +60,14 @@ function BtnPrimary({ href, children, style = {} }) {
         fontWeight: 700,
         padding: '12px 24px',
         background: FG,
-        color: '#000',
+        color: 'var(--color-on-fg)',
         borderRadius: 2,
         letterSpacing: '-0.01em',
         transition: 'background 0.2s, color 0.2s',
         ...style,
       }}
-      onMouseEnter={e => { e.currentTarget.style.background = ACCENT; e.currentTarget.style.color = '#fff'; }}
-      onMouseLeave={e => { e.currentTarget.style.background = FG; e.currentTarget.style.color = '#000'; }}
+      onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-accent)'; e.currentTarget.style.color = 'var(--color-on-accent)'; }}
+      onMouseLeave={e => { e.currentTarget.style.background = 'var(--color-fg)'; e.currentTarget.style.color = 'var(--color-on-fg)'; }}
     >
       {children}
     </a>
@@ -97,12 +90,12 @@ function BtnGhost({ href, children, target }) {
         padding: '12px 20px',
         background: 'transparent',
         color: MUTED,
-        border: `1px solid rgba(255,255,255,0.12)`,
+        border: `1px solid ${BORDER1}`,
         borderRadius: 2,
         transition: 'color 0.2s, border-color 0.2s',
       }}
-      onMouseEnter={e => { e.currentTarget.style.color = FG; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
-      onMouseLeave={e => { e.currentTarget.style.color = MUTED; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}
+      onMouseEnter={e => { e.currentTarget.style.color = 'var(--color-fg)'; e.currentTarget.style.borderColor = 'var(--color-border-strong)'; }}
+      onMouseLeave={e => { e.currentTarget.style.color = 'var(--color-fg-2)'; e.currentTarget.style.borderColor = 'var(--color-border-1)'; }}
     >
       {children}
     </a>
@@ -168,7 +161,7 @@ function Hero() {
             fontWeight: 900,
             letterSpacing: '-0.04em',
             lineHeight: 0.92,
-            color: '#ffffff',
+            color: FG,
             marginBottom: 48,
             maxWidth: '10ch',
           }}>
@@ -221,7 +214,7 @@ function ServicosSection() {
             fontWeight: 900,
             letterSpacing: '-0.04em',
             lineHeight: 0.95,
-            color: '#ffffff',
+            color: FG,
             marginBottom: 64,
           }}>
             O que posso<br />fazer por você
@@ -240,13 +233,13 @@ function ServicosSection() {
             <StaggerItem key={s.titulo} variant="fadeIn">
               <div
                 style={{ padding: '40px 36px', background: BG, height: '100%', transition: 'background 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = BG; }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-surface-hover)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'var(--color-bg)'; }}
               >
                 <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em', marginBottom: 20 }}>
                   {s.n}
                 </div>
-                <h3 style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#fff', marginBottom: 10 }}>
+                <h3 style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: FG, marginBottom: 10 }}>
                   {s.titulo}
                 </h3>
                 <p style={{ fontFamily: BODY, fontSize: 14, color: MUTED, lineHeight: 1.65 }}>
@@ -273,7 +266,7 @@ function ProcessoSection() {
             fontWeight: 900,
             letterSpacing: '-0.04em',
             lineHeight: 0.95,
-            color: '#ffffff',
+            color: FG,
             marginBottom: 64,
           }}>
             Simples.<br />Transparente.
@@ -301,12 +294,12 @@ function ProcessoSection() {
                   fontWeight: 900,
                   fontSize: 'clamp(3rem, 5vw, 5rem)',
                   letterSpacing: '-0.05em',
-                  color: 'rgba(255,255,255,0.08)',
+                  color: 'var(--color-num-ghost)',
                   lineHeight: 1,
                 }}>
                   {p.n}
                 </div>
-                <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 28, letterSpacing: '-0.03em', color: '#fff' }}>
+                <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 28, letterSpacing: '-0.03em', color: FG }}>
                   {p.titulo}
                 </h3>
                 <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.65 }}>
@@ -321,92 +314,6 @@ function ProcessoSection() {
         @media (max-width: 768px) {
           .processo-item { grid-template-columns: 1fr !important; gap: 8px !important; }
         }
-      `}</style>
-    </section>
-  );
-}
-
-function PortfolioSection() {
-  return (
-    <section id="trabalhos" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}` }}>
-      <div style={W}>
-        <Reveal>
-          <Eyebrow>Trabalhos</Eyebrow>
-          <h2 style={{
-            fontFamily: DISPLAY,
-            fontSize: 'clamp(2.2rem, 5vw, 5.5rem)',
-            fontWeight: 900,
-            letterSpacing: '-0.04em',
-            lineHeight: 0.95,
-            color: '#ffffff',
-            marginBottom: 64,
-          }}>
-            Projetos<br />recentes
-          </h2>
-        </Reveal>
-
-        <StaggerContainer style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 1,
-          background: BORDER,
-        }}>
-          {PORTFOLIO.map(p => (
-            <StaggerItem key={p.titulo} variant="fadeIn">
-              <div
-                style={{
-                  background: BG,
-                  padding: '40px 36px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  minHeight: 240,
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'background 0.25s',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,61,0,0.04)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = BG; }}
-              >
-                <div>
-                  <div style={{
-                    fontFamily: DISPLAY,
-                    fontSize: 10,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: ACCENT,
-                    marginBottom: 16,
-                  }}>
-                    {p.cat}
-                  </div>
-                  <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 20, letterSpacing: '-0.02em', color: '#fff', marginBottom: 8 }}>
-                    {p.titulo}
-                  </h3>
-                  <p style={{ fontFamily: BODY, fontSize: 13, color: MUTED, lineHeight: 1.55 }}>
-                    {p.desc}
-                  </p>
-                </div>
-                <div style={{
-                  width: 32, height: 32,
-                  border: `1px solid ${BORDER}`,
-                  borderRadius: '50%',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: MUTED,
-                  fontSize: 14,
-                  alignSelf: 'flex-end',
-                  transition: 'border-color 0.2s, color 0.2s',
-                }}>
-                  →
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-      <style>{`
-        @media (max-width: 900px) { #trabalhos .vl-pgrid { grid-template-columns: 1fr 1fr !important; } }
-        @media (max-width: 600px) { #trabalhos .vl-pgrid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
   );
@@ -431,7 +338,7 @@ function StatsSection() {
                   fontWeight: 900,
                   fontSize: 'clamp(2rem, 4vw, 4.5rem)',
                   letterSpacing: '-0.04em',
-                  color: '#ffffff',
+                  color: FG,
                   lineHeight: 1,
                   marginBottom: 8,
                 }}>
@@ -468,7 +375,7 @@ function GarantiaSection() {
                 fontSize: 'clamp(2rem, 4vw, 5rem)',
                 letterSpacing: '-0.04em',
                 lineHeight: 0.95,
-                color: '#ffffff',
+                color: FG,
                 marginBottom: 24,
               }}>
                 Você não aprova,<br />não paga{' '}
@@ -480,7 +387,7 @@ function GarantiaSection() {
               </p>
             </div>
             <div style={{ borderLeft: `3px solid ${ACCENT}`, paddingLeft: 40 }}>
-              <p style={{ fontFamily: DISPLAY, fontSize: 18, fontWeight: 500, color: '#fff', lineHeight: 1.5, marginBottom: 32, letterSpacing: '-0.01em' }}>
+              <p style={{ fontFamily: DISPLAY, fontSize: 18, fontWeight: 500, color: FG, lineHeight: 1.5, marginBottom: 32, letterSpacing: '-0.01em' }}>
                 Revisões ilimitadas até aprovação. Código limpo e documentado. Entrega no prazo combinado. Sem custos ocultos.
               </p>
               <BtnPrimary href="#contato">Começar agora</BtnPrimary>
@@ -509,7 +416,7 @@ function FaqSection() {
             fontSize: 'clamp(2.2rem, 5vw, 5.5rem)',
             letterSpacing: '-0.04em',
             lineHeight: 0.95,
-            color: '#ffffff',
+            color: FG,
             marginBottom: 64,
           }}>
             Perguntas<br />frequentes
@@ -525,7 +432,7 @@ function FaqSection() {
                   padding: '24px 0',
                   fontSize: 16,
                   fontWeight: 600,
-                  color: '#ffffff',
+                  color: FG,
                   cursor: 'pointer',
                   listStyle: 'none',
                   display: 'flex',
@@ -535,8 +442,8 @@ function FaqSection() {
                   userSelect: 'none',
                   transition: 'color 0.2s',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.color = ACCENT; }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#ffffff'; }}
+                onMouseEnter={e => { e.currentTarget.style.color = 'var(--color-accent)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = 'var(--color-fg)'; }}
                 >
                   {faq.q}
                   <span style={{
@@ -581,7 +488,7 @@ function CtaSection() {
             fontSize: 'clamp(2.5rem, 6vw, 7rem)',
             letterSpacing: '-0.04em',
             lineHeight: 0.95,
-            color: '#ffffff',
+            color: FG,
             maxWidth: '14ch',
             margin: '0 auto 24px',
           }}>
@@ -611,10 +518,10 @@ function CtaSection() {
 
 const LBL = {
   display: 'block',
-  fontFamily: "'Space Grotesk', sans-serif",
+  fontFamily: 'var(--font-display)',
   fontSize: 11,
   fontWeight: 500,
-  color: '#666666',
+  color: 'var(--color-fg-2)',
   marginBottom: 6,
   letterSpacing: '0.08em',
   textTransform: 'uppercase',
@@ -623,12 +530,12 @@ const LBL = {
 const INP = {
   width: '100%',
   padding: '12px 14px',
-  background: 'rgba(255,255,255,0.03)',
-  border: '1px solid rgba(255,255,255,0.12)',
+  background: 'var(--color-field)',
+  border: '1px solid var(--color-border-1)',
   borderRadius: 2,
-  color: '#f0f0f0',
+  color: 'var(--color-fg)',
   fontSize: 15,
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: 'var(--font-body)',
   outline: 'none',
   transition: 'border-color 0.2s',
 };
@@ -646,7 +553,7 @@ function ContatoSection() {
               fontSize: 'clamp(2.2rem, 4vw, 5rem)',
               letterSpacing: '-0.04em',
               lineHeight: 0.95,
-              color: '#ffffff',
+              color: FG,
               marginBottom: 24,
             }}>
               Vamos<br />conversar
@@ -654,7 +561,7 @@ function ContatoSection() {
             <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.7, marginBottom: 8 }}>
               Respondo em até 24 horas.
             </p>
-            <p style={{ fontFamily: BODY, fontSize: 14, color: '#444', lineHeight: 1.65 }}>
+            <p style={{ fontFamily: BODY, fontSize: 14, color: 'var(--color-fg-3)', lineHeight: 1.65 }}>
               Conte o que você precisa — seja um site, uma ferramenta, uma planilha ou uma solução com IA.
             </p>
           </Reveal>
@@ -672,8 +579,8 @@ function ContatoSection() {
                     <input
                       type="text" name="name" required placeholder="Seu nome"
                       style={INP}
-                      onFocus={e => { e.target.style.borderColor = ACCENT; }}
-                      onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.12)'; }}
+                      onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
+                      onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }}
                     />
                   </div>
                   <div>
@@ -681,8 +588,8 @@ function ContatoSection() {
                     <input
                       type="text" name="email" required placeholder="contato@email.com"
                       style={INP}
-                      onFocus={e => { e.target.style.borderColor = ACCENT; }}
-                      onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.12)'; }}
+                      onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
+                      onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }}
                     />
                   </div>
                 </div>
@@ -691,8 +598,8 @@ function ContatoSection() {
                   <select
                     name="servico"
                     style={{ ...INP, cursor: 'pointer' }}
-                    onFocus={e => { e.target.style.borderColor = ACCENT; }}
-                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.12)'; }}
+                    onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
+                    onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }}
                   >
                     <option value="">Selecione</option>
                     <option>Criação de Site</option>
@@ -708,8 +615,8 @@ function ContatoSection() {
                   <textarea
                     name="message" rows={5} required placeholder="Descreva o que você precisa..."
                     style={{ ...INP, resize: 'vertical' }}
-                    onFocus={e => { e.target.style.borderColor = ACCENT; }}
-                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.12)'; }}
+                    onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
+                    onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }}
                   />
                 </div>
                 <button
@@ -719,8 +626,8 @@ function ContatoSection() {
                     fontSize: 14,
                     fontWeight: 700,
                     padding: '14px 28px',
-                    background: FG,
-                    color: '#000',
+                    background: 'var(--color-fg)',
+                    color: 'var(--color-on-fg)',
                     border: 'none',
                     borderRadius: 2,
                     cursor: 'pointer',
@@ -728,8 +635,8 @@ function ContatoSection() {
                     alignSelf: 'flex-start',
                     letterSpacing: '-0.01em',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = ACCENT; e.currentTarget.style.color = '#fff'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = FG; e.currentTarget.style.color = '#000'; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-accent)'; e.currentTarget.style.color = 'var(--color-on-accent)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'var(--color-fg)'; e.currentTarget.style.color = 'var(--color-on-fg)'; }}
                 >
                   Enviar mensagem
                 </button>
@@ -750,7 +657,7 @@ function ContatoSection() {
 
 function Footer() {
   return (
-    <footer style={{ padding: '32px 0', borderTop: `1px solid ${BORDER}`, background: '#000' }}>
+    <footer style={{ padding: '32px 0', borderTop: `1px solid ${BORDER}`, background: 'var(--color-footer-bg)' }}>
       <div style={{
         ...W,
         display: 'flex',
@@ -762,7 +669,7 @@ function Footer() {
         <div style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, color: MUTED, letterSpacing: '-0.01em' }}>
           VL<span style={{ color: ACCENT }}>.</span>Builds
         </div>
-        <div style={{ fontFamily: BODY, fontSize: 12, color: '#444' }}>
+        <div style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)' }}>
           © {new Date().getFullYear()} VL Builds. Todos os direitos reservados.
         </div>
         <div style={{ display: 'flex', gap: 24 }}>
@@ -774,9 +681,9 @@ function Footer() {
             <a
               key={l.label}
               href={l.href}
-              style={{ fontFamily: BODY, fontSize: 12, color: '#444', transition: 'color 0.2s' }}
-              onMouseEnter={e => { e.target.style.color = MUTED; }}
-              onMouseLeave={e => { e.target.style.color = '#444'; }}
+              style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)', transition: 'color 0.2s' }}
+              onMouseEnter={e => { e.target.style.color = 'var(--color-fg-2)'; }}
+              onMouseLeave={e => { e.target.style.color = 'var(--color-fg-3)'; }}
             >
               {l.label}
             </a>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 const NAV_LINKS = [
   { label: 'Serviços',  href: '#servicos' },
@@ -10,7 +11,7 @@ const NAV_LINKS = [
   { label: 'FAQ',       href: '#faq' },
 ];
 
-const FONT = "'Space Grotesk', sans-serif";
+const FONT = 'var(--font-display)';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,10 +36,14 @@ export default function Header() {
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 40px',
-        background: scrolled ? 'rgba(8,8,8,0.85)' : 'rgba(8,8,8,0)',
+        background: scrolled
+          ? 'color-mix(in srgb, var(--color-bg) 85%, transparent)'
+          : 'transparent',
         backdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : '1px solid transparent',
+        borderBottom: scrolled
+          ? '1px solid var(--color-border)'
+          : '1px solid transparent',
         transition: 'background 0.3s, border-color 0.2s',
       }}
     >
@@ -47,11 +52,11 @@ export default function Header() {
         fontFamily: FONT,
         fontSize: 15,
         fontWeight: 700,
-        color: '#f0f0f0',
+        color: 'var(--color-fg)',
         letterSpacing: '-0.02em',
         display: 'flex', alignItems: 'center', gap: 2,
       }}>
-        VL<span style={{ color: '#FF3D00' }}>.</span>Builds
+        VL<span style={{ color: 'var(--color-accent)' }}>.</span>Builds
       </a>
 
       {/* nav desktop */}
@@ -62,7 +67,7 @@ export default function Header() {
             href={link.href}
             style={{
               fontFamily: FONT,
-              color: '#666666',
+              color: 'var(--color-fg-2)',
               fontSize: 13,
               fontWeight: 400,
               letterSpacing: '0.04em',
@@ -70,34 +75,37 @@ export default function Header() {
               padding: '0 16px',
               transition: 'color 0.2s',
             }}
-            onMouseEnter={e => { e.target.style.color = '#f0f0f0'; }}
-            onMouseLeave={e => { e.target.style.color = '#666666'; }}
+            onMouseEnter={e => { e.target.style.color = 'var(--color-fg)'; }}
+            onMouseLeave={e => { e.target.style.color = 'var(--color-fg-2)'; }}
           >
             {link.label}
           </a>
         ))}
       </nav>
 
-      {/* CTA — retangular, accent */}
-      <a
-        href="#contato"
-        style={{
-          fontFamily: FONT,
-          background: '#FF3D00',
-          color: '#ffffff',
-          fontSize: 13,
-          fontWeight: 600,
-          padding: '8px 18px',
-          borderRadius: '2px',
-          letterSpacing: '0.01em',
-          transition: 'opacity 0.2s',
-          whiteSpace: 'nowrap',
-        }}
-        onMouseEnter={e => { e.target.style.opacity = '0.85'; }}
-        onMouseLeave={e => { e.target.style.opacity = '1'; }}
-      >
-        Fale comigo
-      </a>
+      {/* actions */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <ThemeToggle />
+        <a
+          href="#contato"
+          style={{
+            fontFamily: FONT,
+            background: 'var(--color-accent)',
+            color: 'var(--color-on-accent)',
+            fontSize: 13,
+            fontWeight: 600,
+            padding: '8px 18px',
+            borderRadius: '2px',
+            letterSpacing: '0.01em',
+            transition: 'opacity 0.2s',
+            whiteSpace: 'nowrap',
+          }}
+          onMouseEnter={e => { e.target.style.opacity = '0.85'; }}
+          onMouseLeave={e => { e.target.style.opacity = '1'; }}
+        >
+          Fale comigo
+        </a>
+      </div>
 
       <style>{`
         @media (max-width: 768px) {

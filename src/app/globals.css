@@ -1,40 +1,63 @@
 @import "tailwindcss";
 
-/* ─── Editorial Bold — tokens VL Builds ─── */
+/* ─── Tema escuro (padrão) ─── */
 :root {
-  /* cores */
-  --color-accent:     #FF3D00;
-  --color-accent-dim: rgba(255,61,0,0.12);
-
-  /* backgrounds */
-  --color-bg:         #080808;
-  --color-bg-1:       #0d0d0d;
-  --color-bg-2:       #111111;
-
-  /* texto */
-  --color-fg:         #f0f0f0;
-  --color-fg-2:       #666666;
-  --color-fg-3:       #333333;
-
-  /* borders */
-  --color-border:     rgba(255,255,255,0.07);
-  --color-border-1:   rgba(255,255,255,0.12);
-
-  /* tipografia */
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
-
-  /* radius — editorial usa cantos quadrados */
-  --radius-btn:  2px;
-  --radius-card: 2px;
-
-  /* transitions */
-  --ease:        cubic-bezier(0.44, 0, 0.56, 1);
-  --duration-sm: 0.2s;
-  --duration-md: 0.3s;
+  color-scheme: dark;
+  --color-accent:        #FF3D00;
+  --color-accent-dim:    rgba(255,61,0,0.12);
+  --color-accent-wash:   rgba(255,61,0,0.04);
+  --color-on-accent:     #ffffff;
+  --color-bg:            #080808;
+  --color-bg-1:          #0d0d0d;
+  --color-bg-2:          #131313;
+  --color-footer-bg:     #000000;
+  --color-fg:            #f0f0f0;
+  --color-on-fg:         #000000;
+  --color-fg-2:          #666666;
+  --color-fg-3:          #4a4a4a;
+  --color-border:        rgba(255,255,255,0.07);
+  --color-border-1:      rgba(255,255,255,0.12);
+  --color-border-strong: rgba(255,255,255,0.30);
+  --color-surface-hover: rgba(255,255,255,0.02);
+  --color-num-ghost:     rgba(255,255,255,0.08);
+  --color-field:         rgba(255,255,255,0.03);
 }
 
-/* ─── base ─── */
+/* ─── Tema claro (Paper) ─── */
+[data-theme="light"] {
+  color-scheme: light;
+  --color-accent:        #FF3D00;
+  --color-accent-dim:    rgba(255,61,0,0.12);
+  --color-accent-wash:   rgba(255,61,0,0.06);
+  --color-on-accent:     #ffffff;
+  --color-bg:            #f4f2ee;
+  --color-bg-1:          #ece9e3;
+  --color-bg-2:          #eae7e0;
+  --color-footer-bg:     #ece9e3;
+  --color-fg:            #14110d;
+  --color-on-fg:         #f4f2ee;
+  --color-fg-2:          #6e685f;
+  --color-fg-3:          #a9a299;
+  --color-border:        rgba(0,0,0,0.10);
+  --color-border-1:      rgba(0,0,0,0.16);
+  --color-border-strong: rgba(0,0,0,0.30);
+  --color-surface-hover: rgba(0,0,0,0.03);
+  --color-num-ghost:     rgba(0,0,0,0.08);
+  --color-field:         rgba(0,0,0,0.03);
+}
+
+/* ─── Tokens fixos (não mudam com o tema) ─── */
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --radius-btn:   2px;
+  --radius-card:  2px;
+  --ease:         cubic-bezier(0.44, 0, 0.56, 1);
+  --duration-sm:  0.2s;
+  --duration-md:  0.3s;
+}
+
+/* ─── Base ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -52,7 +75,6 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 
-/* ─── reduzir motion ─── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
