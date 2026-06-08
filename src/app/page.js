@@ -193,9 +193,10 @@ function ServicosSection({ t }) {
           {s.items.map(item => (
             <StaggerItem key={item.n} variant="fadeIn">
               <div
-                style={{ padding: '40px 36px', background: BG, height: '100%', transition: 'background 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-surface-hover)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--color-bg)'; }}
+                className={`vl-svc-card vl-svc-${item.n}`}
+                style={{ padding: '40px 36px', height: '100%' }}
+                onMouseEnter={e => { e.currentTarget.style.filter = 'brightness(1.14)'; }}
+                onMouseLeave={e => { e.currentTarget.style.filter = 'none'; }}
               >
                 <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em', marginBottom: 20 }}>{item.n}</div>
                 <h3 style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: FG, marginBottom: 10 }}>{item.titulo}</h3>

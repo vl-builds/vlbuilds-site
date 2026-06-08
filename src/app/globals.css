@@ -103,6 +103,64 @@ button { font-family: inherit; cursor: pointer; }
   to   { opacity: 1; }
 }
 
+/* ─── Service card backgrounds ─── */
+.vl-svc-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg);
+  transition: filter 0.25s;
+}
+.vl-svc-card:hover { filter: brightness(1.14); }
+
+/* Imagem embaçada — pseudo-elemento para suportar filter: blur */
+.vl-svc-card::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* Scrim de gradiente sobre a imagem */
+.vl-svc-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Conteúdo do card acima do scrim */
+.vl-svc-card > * { position: relative; z-index: 2; }
+
+/* Dark — scrim */
+[data-theme="dark"] .vl-svc-card::after {
+  background-image: linear-gradient(to top, #080808 0%, rgba(8,8,8,0.88) 42%, rgba(8,8,8,0.28) 100%);
+}
+/* Dark — imagens */
+[data-theme="dark"] .vl-svc-01::before { background-image: url(/services/01-dark.png); }
+[data-theme="dark"] .vl-svc-02::before { background-image: url(/services/02-dark.png); }
+[data-theme="dark"] .vl-svc-03::before { background-image: url(/services/03-dark.png); }
+[data-theme="dark"] .vl-svc-04::before { background-image: url(/services/04-dark.png); }
+[data-theme="dark"] .vl-svc-05::before { background-image: url(/services/05-dark.png); }
+[data-theme="dark"] .vl-svc-06::before { background-image: url(/services/06-dark.png); }
+
+/* Light — scrim */
+[data-theme="light"] .vl-svc-card::after {
+  background-image: linear-gradient(to top, #f4f2ee 0%, rgba(244,242,238,0.90) 42%, rgba(244,242,238,0.28) 100%);
+}
+/* Light — imagens */
+[data-theme="light"] .vl-svc-01::before { background-image: url(/services/01-light.png); }
+[data-theme="light"] .vl-svc-02::before { background-image: url(/services/02-light.png); }
+[data-theme="light"] .vl-svc-03::before { background-image: url(/services/03-light.png); }
+[data-theme="light"] .vl-svc-04::before { background-image: url(/services/04-light.png); }
+[data-theme="light"] .vl-svc-05::before { background-image: url(/services/05-light.png); }
+[data-theme="light"] .vl-svc-06::before { background-image: url(/services/06-light.png); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
