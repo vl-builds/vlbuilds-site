@@ -6,6 +6,10 @@ export const metadata = {
   description:
     'Agência especializada em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e apresentações profissionais.',
   authors: [{ name: 'Vitor' }],
+  icons: {
+    icon: '/logo-site.png',
+    apple: '/logo-site.png',
+  },
   openGraph: {
     title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
     description: 'Transforme suas ideias em produtos digitais.',

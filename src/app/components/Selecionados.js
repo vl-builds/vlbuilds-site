@@ -66,7 +66,7 @@ function FeatVisual({ projeto, soon }) {
 export default function PortfolioSection() {
   const { t } = useLocale();
   const p_t = t.portfolio;
-  const PROJETOS = p_t.items.map(item => ({ ...item, img: null }));
+  const PROJETOS = p_t.items.map(item => ({ ...item, img: item.img || null }));
 
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -229,7 +229,7 @@ export default function PortfolioSection() {
             }}>
               {p.desc}
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 40 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: p.url ? 24 : 40 }}>
               {p.tags.map(tag => (
                 <span key={tag} style={{
                   fontFamily: 'var(--font-display)',
@@ -245,6 +245,30 @@ export default function PortfolioSection() {
                 </span>
               ))}
             </div>
+
+            {p.url && (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: 'var(--color-accent)',
+                  letterSpacing: '-0.01em',
+                  marginBottom: 32,
+                  transition: 'opacity .2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '0.7'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+              >
+                Ver projeto →
+              </a>
+            )}
 
             <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
               {PROJETOS.map((_, i) => (

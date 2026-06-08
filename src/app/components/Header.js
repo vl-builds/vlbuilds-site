@@ -55,9 +55,16 @@ export default function Header() {
         fontWeight: 700,
         color: 'var(--color-fg)',
         letterSpacing: '-0.02em',
-        display: 'flex', alignItems: 'center', gap: 2,
+        display: 'flex', alignItems: 'center', gap: 8,
       }}>
-        VL<span style={{ color: 'var(--color-accent)' }}>.</span>Builds
+        <img
+          src="/logo-site.png"
+          alt="VL Builds"
+          width="30"
+          height="30"
+          style={{ display: 'block', width: 30, height: 30, flexShrink: 0 }}
+        />
+        <span>VL<span style={{ color: 'var(--color-accent)' }}>.</span>Builds</span>
       </a>
 
       {/* nav desktop */}
