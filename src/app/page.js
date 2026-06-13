@@ -3,6 +3,7 @@
 import Header from './components/Header';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
 import PortfolioSection from './components/Selecionados';
+import PrecosSection from './components/Precos';
 import { useLocale } from './contexts/LocaleContext';
 
 /* ─── design tokens inline ─── */
@@ -494,6 +495,7 @@ export default function Home() {
       <main style={{ background: BG }}>
         <Hero t={t} />
         <ServicosSection t={t} />
+        <PrecosSection t={t} />
         <ProcessoSection t={t} />
         <PortfolioSection />
         <StatsSection t={t} />

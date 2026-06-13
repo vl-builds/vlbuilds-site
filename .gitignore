@@ -5,6 +5,12 @@ node_modules/
 .next/
 out/
 
+# cloudflare / opennext
+.open-next/
+.wrangler/
+.dev.vars
+cloudflare-env.d.ts
+
 # env
 .env
 .env.local

@@ -1,4 +1,5 @@
 import './globals.css';
+import { headers } from 'next/headers';
 import ClientProviders from './components/ClientProviders';
 
 export const metadata = {
@@ -18,7 +19,10 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  // Mercado definido por geolocalização (IP) no middleware; padrão Portugal.
+  const market = (await headers()).get('x-vl-market') || 'PT';
+
   return (
     <html lang="pt-BR" data-theme="dark" suppressHydrationWarning>
       <head>
@@ -33,7 +37,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body><ClientProviders>{children}</ClientProviders></body>
+      <body><ClientProviders initialMarket={market}>{children}</ClientProviders></body>
     </html>
   );
 }

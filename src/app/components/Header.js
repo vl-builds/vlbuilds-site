@@ -18,6 +18,7 @@ export default function Header() {
 
   const NAV_LINKS = [
     { label: t.nav.services, href: '#servicos' },
+    { label: t.nav.pricing,  href: '#precos' },
     { label: t.nav.work,     href: '#trabalhos' },
     { label: t.nav.process,  href: '#processo' },
     { label: t.nav.faq,      href: '#faq' },

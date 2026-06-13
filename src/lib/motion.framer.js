@@ -60,13 +60,6 @@ export const variants = {
       transition: transitions.base,
     },
   },
-  TypewriterCursor: {
-    hidden: {},
-    show: {
-      "opacity": ["0","1","0"],
-      transition: transitions.base,
-    },
-  },
 };
 
 /** Site uses scroll- or view-timeline. Drop-in `whileInView` props. */
