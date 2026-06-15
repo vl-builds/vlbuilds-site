@@ -605,28 +605,30 @@ function ContatoSection({ t }) {
 function Footer({ t }) {
   return (
     <footer style={{ padding: '32px 0', borderTop: `1px solid ${BORDER}`, background: 'var(--color-footer-bg)' }}>
-      <div style={{ ...W, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
-        <div style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, color: MUTED, letterSpacing: '-0.01em' }}>
-          VL<span style={{ color: ACCENT }}>.</span>Builds
+      <Reveal type="fadeIn">
+        <div style={{ ...W, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+          <div style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, color: MUTED, letterSpacing: '-0.01em' }}>
+            VL<span style={{ color: ACCENT }}>.</span>Builds
+          </div>
+          <div style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)' }}>
+            © {new Date().getFullYear()} VL Builds. {t.footer.copy}
+          </div>
+          <div style={{ display: 'flex', gap: 24 }}>
+            {[
+              { label: t.nav.services, href: '#servicos' },
+              { label: t.nav.work,     href: '#trabalhos' },
+              { label: t.nav.cta,      href: '#contato' },
+            ].map(l => (
+              <a key={l.label} href={l.href}
+                style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)', transition: 'color 0.2s' }}
+                onMouseEnter={e => { e.target.style.color = 'var(--color-fg-2)'; }}
+                onMouseLeave={e => { e.target.style.color = 'var(--color-fg-3)'; }}>
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
-        <div style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)' }}>
-          © {new Date().getFullYear()} VL Builds. {t.footer.copy}
-        </div>
-        <div style={{ display: 'flex', gap: 24 }}>
-          {[
-            { label: t.nav.services, href: '#servicos' },
-            { label: t.nav.work,     href: '#trabalhos' },
-            { label: t.nav.cta,      href: '#contato' },
-          ].map(l => (
-            <a key={l.label} href={l.href}
-              style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)', transition: 'color 0.2s' }}
-              onMouseEnter={e => { e.target.style.color = 'var(--color-fg-2)'; }}
-              onMouseLeave={e => { e.target.style.color = 'var(--color-fg-3)'; }}>
-              {l.label}
-            </a>
-          ))}
-        </div>
-      </div>
+      </Reveal>
     </footer>
   );
 }
