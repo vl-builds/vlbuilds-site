@@ -1,6 +1,7 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
 import { Pinned } from './components/motion/Pinned';
@@ -389,33 +390,67 @@ function GarantiaSection({ t }) {
 
 function FaqSection({ t }) {
   const f = t.faq;
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <section id="faq" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}` }}>
       <div style={{ ...W, maxWidth: 860 }}>
         <Reveal>
           <Eyebrow>{f.eyebrow}</Eyebrow>
-          <h2 style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2.2rem, 5vw, 5.5rem)', letterSpacing: '-0.04em', lineHeight: 0.95, color: FG, marginBottom: 64 }}>
-            {f.heading[0]}<br />{f.heading[1]}
-          </h2>
         </Reveal>
+        <LineReveal
+          as="h2"
+          lines={[f.heading[0], f.heading[1]]}
+          style={{
+            fontFamily: DISPLAY,
+            fontSize: 'var(--text-h2)',
+            fontWeight: 'var(--font-weight-display)',
+            letterSpacing: 'var(--tracking-display)',
+            lineHeight: 'var(--leading-tight)',
+            color: FG,
+            marginBottom: 64,
+          }}
+          stagger={0.12}
+          delay={0.05}
+        />
 
         <StaggerContainer>
-          {f.items.map((faq, i) => (
-            <StaggerItem key={i} variant="fadeIn">
-              <details style={{ borderTop: `1px solid ${BORDER}` }}>
-                <summary
-                  style={{ fontFamily: DISPLAY, padding: '24px 0', fontSize: 16, fontWeight: 600, color: FG, cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', letterSpacing: '-0.01em', userSelect: 'none', transition: 'color 0.2s' }}
-                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--color-accent)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--color-fg)'; }}
-                >
-                  {faq.q}
-                  <span style={{ width: 28, height: 28, border: `1px solid ${BORDER}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: MUTED, flexShrink: 0, marginLeft: 16 }}>+</span>
-                </summary>
-                <p style={{ fontFamily: BODY, fontSize: 14, color: MUTED, lineHeight: 1.7, padding: '0 0 28px', maxWidth: '60ch' }}>{faq.a}</p>
-              </details>
-              <div style={{ borderTop: `1px solid ${BORDER}` }} />
-            </StaggerItem>
-          ))}
+          {f.items.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <StaggerItem key={i} variant="slideUp">
+                <div style={{ borderTop: `1px solid ${BORDER}` }}>
+                  <button
+                    aria-expanded={isOpen}
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    style={{ fontFamily: DISPLAY, padding: '24px 0', fontSize: 16, fontWeight: 600, color: FG, cursor: 'pointer', background: 'none', border: 'none', width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', letterSpacing: '-0.01em', userSelect: 'none', transition: 'color 0.2s', textAlign: 'left' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = 'var(--color-accent)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = 'var(--color-fg)'; }}
+                  >
+                    {faq.q}
+                    <span style={{ width: 28, height: 28, border: `1px solid ${BORDER}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: MUTED, flexShrink: 0, marginLeft: 16, transition: 'transform 0.3s', transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <div style={{ paddingBottom: 28 }}>
+                          <p style={{ fontFamily: BODY, fontSize: 14, color: MUTED, lineHeight: 1.7, maxWidth: '60ch' }}>{faq.a}</p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                <div style={{ borderTop: `1px solid ${BORDER}` }} />
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </div>
     </section>
