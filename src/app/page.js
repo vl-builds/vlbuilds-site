@@ -1,11 +1,9 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
-import { Pinned } from './components/motion/Pinned';
-import { ScrollScene } from './components/motion/ScrollScene';
 import { LineReveal } from './components/motion/LineReveal';
 import { Counter } from './components/motion/Counter';
 import PortfolioSection from './components/Selecionados';
@@ -102,13 +100,9 @@ function Eyebrow({ children }) {
 /* ─── seções ─── */
 
 function Hero({ t }) {
-  const heroRef = useRef(null);
   return (
-    <Pinned ref={heroRef} height="180vh">
-      <section style={{ flex: 1, minHeight: '100vh', padding: '0 40px 80px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-        <ScrollScene target={heroRef} offset={['start start', 'end start']} from={{ y: 0, scale: 1.05 }} to={{ y: -60, scale: 1 }} style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <div className="vl-hero-bg" aria-hidden="true" style={{ position: 'absolute', inset: 0 }} />
-        </ScrollScene>
+    <section style={{ minHeight: '100vh', padding: '0 40px 80px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+      <div className="vl-hero-bg" aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
 
         <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
 
@@ -161,7 +155,6 @@ function Hero({ t }) {
 
         <style>{`@keyframes vlpulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }`}</style>
       </section>
-    </Pinned>
   );
 }
 
@@ -205,9 +198,7 @@ function ServicosSection({ t }) {
                 onMouseEnter={e => { e.currentTarget.style.filter = 'brightness(1.14)'; }}
                 onMouseLeave={e => { e.currentTarget.style.filter = 'none'; }}
               >
-                <ScrollScene from={{ y: 18 }} to={{ y: -18 }} style={{ marginBottom: 20 }}>
-                  <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em' }}>{item.n}</div>
-                </ScrollScene>
+                <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em', marginBottom: 20 }}>{item.n}</div>
                 <h3 style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: FG, marginBottom: 10 }}>{item.titulo}</h3>
                 <p style={{ fontFamily: BODY, fontSize: 14, color: MUTED, lineHeight: 1.65 }}>{item.desc}</p>
               </div>
@@ -219,18 +210,10 @@ function ServicosSection({ t }) {
   );
 }
 
-const STEP_OFFSETS = [
-  ['start start', '0.4 start'],
-  ['0.25 start', '0.65 start'],
-  ['0.5 start', '0.9 start'],
-];
-
 function ProcessoSection({ t }) {
   const p = t.process;
-  const processoRef = useRef(null);
   return (
-    <Pinned ref={processoRef} height="220vh">
-      <section id="processo" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}`, background: BG1 }}>
+    <section id="processo" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}`, background: BG1 }}>
         <div style={W}>
           <Reveal>
             <Eyebrow>{p.eyebrow}</Eyebrow>
@@ -252,12 +235,9 @@ function ProcessoSection({ t }) {
           />
 
           <div style={{ position: 'relative' }}>
-            {/* animated vertical connector line */}
-            <ScrollScene
-              target={processoRef}
-              offset={['start start', 'end start']}
-              from={{ scale: 0 }}
-              to={{ scale: 1 }}
+            {/* static vertical connector line */}
+            <div
+              aria-hidden="true"
               style={{
                 position: 'absolute',
                 left: 39,
@@ -265,22 +245,14 @@ function ProcessoSection({ t }) {
                 bottom: 0,
                 width: 2,
                 background: ACCENT,
-                transformOrigin: 'top',
                 pointerEvents: 'none',
                 zIndex: 0,
               }}
-            >
-              <div style={{ width: '100%', height: '100%' }} />
-            </ScrollScene>
+            />
 
-            {p.items.map((step, i) => (
-              <ScrollScene
-                key={step.n}
-                target={processoRef}
-                offset={STEP_OFFSETS[i] ?? STEP_OFFSETS[STEP_OFFSETS.length - 1]}
-                from={{ opacity: 0.15, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-              >
+            <StaggerContainer>
+            {p.items.map((step) => (
+              <StaggerItem key={step.n} variant="slideUp">
                 <div
                   style={{
                     display: 'grid',
@@ -300,12 +272,12 @@ function ProcessoSection({ t }) {
                   <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 28, letterSpacing: '-0.03em', color: FG }}>{step.titulo}</h3>
                   <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.65 }}>{step.desc}</p>
                 </div>
-              </ScrollScene>
+              </StaggerItem>
             ))}
+            </StaggerContainer>
           </div>
         </div>
       </section>
-    </Pinned>
   );
 }
 
@@ -374,14 +346,12 @@ function GarantiaSection({ t }) {
               <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.7 }}>{g.body}</p>
             </Reveal>
           </div>
-          <ScrollScene from={{ scale: 0.9, opacity: 0 }} to={{ scale: 1, opacity: 1 }} offset={['start end', 'center center']}>
-            <Reveal type="riseIn" delay={0.1}>
-              <div style={{ borderLeft: `3px solid ${ACCENT}`, paddingLeft: 40 }}>
-                <p style={{ fontFamily: DISPLAY, fontSize: 18, fontWeight: 500, color: FG, lineHeight: 1.5, marginBottom: 32, letterSpacing: '-0.01em' }}>{g.quote}</p>
-                <BtnPrimary href="#contato">{g.btn}</BtnPrimary>
-              </div>
-            </Reveal>
-          </ScrollScene>
+          <Reveal type="riseIn" delay={0.1}>
+            <div style={{ borderLeft: `3px solid ${ACCENT}`, paddingLeft: 40 }}>
+              <p style={{ fontFamily: DISPLAY, fontSize: 18, fontWeight: 500, color: FG, lineHeight: 1.5, marginBottom: 32, letterSpacing: '-0.01em' }}>{g.quote}</p>
+              <BtnPrimary href="#contato">{g.btn}</BtnPrimary>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -659,9 +629,9 @@ export default function Home() {
           <PrecosSection t={t} />
         </Reveal>
         <ProcessoSection t={t} />
-        <ScrollScene from={{ opacity: 0, y: 40 }} to={{ opacity: 1, y: 0 }} offset={['start end', 'start center']}>
+        <Reveal type="riseIn">
           <PortfolioSection />
-        </ScrollScene>
+        </Reveal>
         <StatsSection t={t} />
         <GarantiaSection t={t} />
         <FaqSection t={t} />

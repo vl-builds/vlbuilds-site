@@ -18,6 +18,9 @@ cloudflare-env.d.ts
 .env.test.local
 .env.production.local
 
+# superpowers brainstorm (mockups locais)
+.superpowers/
+
 # misc
 .DS_Store
 *.pem
