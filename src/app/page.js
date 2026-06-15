@@ -217,51 +217,93 @@ function ServicosSection({ t }) {
   );
 }
 
+const STEP_OFFSETS = [
+  ['start start', '0.4 start'],
+  ['0.25 start', '0.65 start'],
+  ['0.5 start', '0.9 start'],
+];
+
 function ProcessoSection({ t }) {
   const p = t.process;
+  const processoRef = useRef(null);
   return (
-    <section id="processo" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}`, background: BG1 }}>
-      <div style={W}>
-        <Reveal>
-          <Eyebrow>{p.eyebrow}</Eyebrow>
-          <h2 style={{
-            fontFamily: DISPLAY,
-            fontSize: 'clamp(2.2rem, 5vw, 5.5rem)',
-            fontWeight: 900,
-            letterSpacing: '-0.04em',
-            lineHeight: 0.95,
-            color: FG,
-            marginBottom: 64,
-          }}>
-            {p.heading[0]}<br />{p.heading[1]}
-          </h2>
-        </Reveal>
+    <Pinned ref={processoRef} height="220vh">
+      <section id="processo" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}`, background: BG1 }}>
+        <div style={W}>
+          <Reveal>
+            <Eyebrow>{p.eyebrow}</Eyebrow>
+          </Reveal>
+          <LineReveal
+            as="h2"
+            lines={[p.heading[0], p.heading[1]]}
+            style={{
+              fontFamily: DISPLAY,
+              fontSize: 'var(--text-h2)',
+              fontWeight: 'var(--font-weight-display)',
+              letterSpacing: 'var(--tracking-display)',
+              lineHeight: 'var(--leading-tight)',
+              color: FG,
+              marginBottom: 64,
+            }}
+            stagger={0.12}
+            delay={0.05}
+          />
 
-        <div>
-          {p.items.map((step, i) => (
-            <StaggerItem key={step.n} variant="fadeIn" delay={i * 0.07}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '80px 1fr 2fr',
-                  gap: '0 48px',
-                  padding: '40px 0',
-                  borderBottom: `1px solid ${BORDER}`,
-                  alignItems: 'center',
-                  transition: 'opacity 0.2s',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.opacity = '0.65'; }}
-                onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+          <div style={{ position: 'relative' }}>
+            {/* animated vertical connector line */}
+            <ScrollScene
+              target={processoRef}
+              offset={['start start', 'end start']}
+              from={{ scale: 0 }}
+              to={{ scale: 1 }}
+              style={{
+                position: 'absolute',
+                left: 39,
+                top: 0,
+                bottom: 0,
+                width: 2,
+                background: ACCENT,
+                transformOrigin: 'top',
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}
+            >
+              <div style={{ width: '100%', height: '100%' }} />
+            </ScrollScene>
+
+            {p.items.map((step, i) => (
+              <ScrollScene
+                key={step.n}
+                target={processoRef}
+                offset={STEP_OFFSETS[i] ?? STEP_OFFSETS[STEP_OFFSETS.length - 1]}
+                from={{ opacity: 0.15, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
               >
-                <div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(3rem, 5vw, 5rem)', letterSpacing: '-0.05em', color: 'var(--color-num-ghost)', lineHeight: 1 }}>{step.n}</div>
-                <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 28, letterSpacing: '-0.03em', color: FG }}>{step.titulo}</h3>
-                <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.65 }}>{step.desc}</p>
-              </div>
-            </StaggerItem>
-          ))}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '80px 1fr 2fr',
+                    gap: '0 48px',
+                    padding: '40px 0',
+                    borderBottom: `1px solid ${BORDER}`,
+                    alignItems: 'center',
+                    transition: 'opacity 0.2s',
+                    position: 'relative',
+                    zIndex: 1,
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.65'; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+                >
+                  <div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(3rem, 5vw, 5rem)', letterSpacing: '-0.05em', color: 'var(--color-num-ghost)', lineHeight: 1 }}>{step.n}</div>
+                  <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: 28, letterSpacing: '-0.03em', color: FG }}>{step.titulo}</h3>
+                  <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.65 }}>{step.desc}</p>
+                </div>
+              </ScrollScene>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Pinned>
   );
 }
 
