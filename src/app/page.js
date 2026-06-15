@@ -235,21 +235,6 @@ function ProcessoSection({ t }) {
           />
 
           <div style={{ position: 'relative' }}>
-            {/* static vertical connector line */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                left: 39,
-                top: 0,
-                bottom: 0,
-                width: 2,
-                background: ACCENT,
-                pointerEvents: 'none',
-                zIndex: 0,
-              }}
-            />
-
             <StaggerContainer>
             {p.items.map((step) => (
               <StaggerItem key={step.n} variant="slideUp">
