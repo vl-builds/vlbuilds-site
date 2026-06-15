@@ -6,16 +6,21 @@
 //   <motion.div variants={variants.slideUp} initial="hidden" animate="show"
 //               transition={transitions.base} />
 
-/** Easing curves extracted from the live page, as Framer cubic-bezier arrays. */
+/** Easing curves — ease-out assinatura do Giga + fallbacks. */
 export const easings = {
-  custom1: [0.44, 0, 0.56, 1], // 2× on page
-  easeInOut: [0.25, 0.1, 0.25, 1], // 1× on page
+  out:       [0, 0, 0.2, 1],      // ease-out cinematográfico (Giga)
+  inOut:     [0.4, 0, 0.2, 1],
+  custom1:   [0.44, 0, 0.56, 1],  // legado
+  easeInOut: [0.25, 0.1, 0.25, 1],
 };
 
-/** Duration presets (seconds), extracted from the live page. */
+/** Duration presets (segundos), tokenizadas (75–420ms). */
 export const durations = {
+  instant: 0.075,
+  xs: 0.15,
   sm: 0.2,
   md: 0.3,
+  lg: 0.42,
 };
 
 /** Spring presets — pass to a Framer Motion `transition` prop. */
@@ -25,9 +30,9 @@ export const springs = {
 
 /** Ready-to-spread Framer Motion transition objects. */
 export const transitions = {
-  base:  { duration: 0.3, ease: easings.custom1 },
-  fast:  { duration: 0.150, ease: easings.custom1 },
-  slow:  { duration: 0.540, ease: easings.custom1 },
+  base:   { duration: durations.md, ease: easings.out },
+  fast:   { duration: durations.xs, ease: easings.out },
+  slow:   { duration: durations.lg, ease: easings.out },
   spring: springs.soft,
 };
 
@@ -38,7 +43,7 @@ export const variants = {
     show:   { opacity: 1, transition: transitions.base },
   },
   slideUp: {
-    hidden: { opacity: 0, y: 16 },
+    hidden: { opacity: 0, y: 14 },
     show:   { opacity: 1, y: 0, transition: transitions.base },
   },
   scaleIn: {
