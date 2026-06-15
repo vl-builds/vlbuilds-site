@@ -374,7 +374,7 @@ function CtaSection({ t }) {
 function ContatoSection({ t }) {
   const c = t.contact;
   const LBL = { display: 'block', fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 500, color: 'var(--color-fg-2)', marginBottom: 6, letterSpacing: '0.08em', textTransform: 'uppercase' };
-  const INP = { width: '100%', padding: '12px 14px', background: 'var(--color-field)', border: '1px solid var(--color-border-1)', borderRadius: 2, color: 'var(--color-fg)', fontSize: 15, fontFamily: 'var(--font-body)', outline: 'none', transition: 'border-color 0.2s' };
+  const INP = { width: '100%', padding: '12px 14px', background: 'var(--color-field)', border: '1px solid var(--color-border-1)', borderRadius: 'var(--radius-input)', color: 'var(--color-fg)', fontSize: 15, fontFamily: 'var(--font-body)', outline: 'none', transition: 'border-color 0.2s' };
 
   return (
     <section id="contato" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}` }}>
@@ -425,7 +425,7 @@ function ContatoSection({ t }) {
                     onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
                     onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }} />
                 </div>
-                <button type="submit" style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, padding: '14px 28px', background: 'var(--color-fg)', color: 'var(--color-on-fg)', border: 'none', borderRadius: 2, cursor: 'pointer', transition: 'background 0.2s, color 0.2s', alignSelf: 'flex-start', letterSpacing: '-0.01em' }}
+                <button type="submit" style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, padding: '14px 28px', background: 'var(--color-fg)', color: 'var(--color-on-fg)', border: 'none', borderRadius: 'var(--radius-btn)', cursor: 'pointer', transition: 'background 0.2s, color 0.2s', alignSelf: 'flex-start', letterSpacing: '-0.01em' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-accent)'; e.currentTarget.style.color = 'var(--color-on-accent)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'var(--color-fg)'; e.currentTarget.style.color = 'var(--color-on-fg)'; }}>
                   {c.btn}
@@ -476,7 +476,7 @@ function Footer({ t }) {
 function WhatsApp() {
   return (
     <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-      style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 200, width: 48, height: 48, borderRadius: 2, background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(37,211,102,0.35)', transition: 'opacity 0.2s' }}
+      style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 200, width: 48, height: 48, borderRadius: 'var(--radius-btn)', background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(37,211,102,0.35)', transition: 'opacity 0.2s' }}
       onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
       onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}>
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
