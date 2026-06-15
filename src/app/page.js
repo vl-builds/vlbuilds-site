@@ -501,7 +501,9 @@ export default function Home() {
       <main style={{ background: BG }}>
         <Hero t={t} />
         <ServicosSection t={t} />
-        <PrecosSection t={t} />
+        <Reveal type="riseIn">
+          <PrecosSection t={t} />
+        </Reveal>
         <ProcessoSection t={t} />
         <PortfolioSection />
         <StatsSection t={t} />
