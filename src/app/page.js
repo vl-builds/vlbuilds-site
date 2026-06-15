@@ -6,6 +6,7 @@ import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
 import { Pinned } from './components/motion/Pinned';
 import { ScrollScene } from './components/motion/ScrollScene';
 import { LineReveal } from './components/motion/LineReveal';
+import { Counter } from './components/motion/Counter';
 import PortfolioSection from './components/Selecionados';
 import PrecosSection from './components/Precos';
 import { useLocale } from './contexts/LocaleContext';
@@ -307,7 +308,14 @@ function ProcessoSection({ t }) {
   );
 }
 
+function splitStat(s) {
+  const m = String(s).match(/^(\D*)(\d+)(\D*)$/);
+  if (!m) return null; // not a simple number → render raw
+  return { prefix: m[1], to: parseInt(m[2], 10), suffix: m[3] };
+}
+
 function StatsSection({ t }) {
+  const valStyle = { fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 4.5rem)', letterSpacing: '-0.04em', color: FG, lineHeight: 1, marginBottom: 8 };
   return (
     <section style={{ padding: '80px 0', borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
       <div style={W}>
@@ -318,14 +326,26 @@ function StatsSection({ t }) {
           background: BORDER,
           border: `1px solid ${BORDER}`,
         }}>
-          {t.stats.map((s, i) => (
-            <StaggerItem key={i} variant="pop">
-              <div style={{ background: BG, padding: '40px 32px', textAlign: 'center' }}>
-                <div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 4.5rem)', letterSpacing: '-0.04em', color: FG, lineHeight: 1, marginBottom: 8 }}>{s.val}</div>
-                <div style={{ fontFamily: BODY, fontSize: 12, color: MUTED, letterSpacing: '0.05em', textTransform: 'uppercase' }}>{s.label}</div>
-              </div>
-            </StaggerItem>
-          ))}
+          {t.stats.map((s, i) => {
+            const parsed = splitStat(s.val);
+            return (
+              <StaggerItem key={i} variant="pop">
+                <div style={{ background: BG, padding: '40px 32px', textAlign: 'center' }}>
+                  {parsed ? (
+                    <Counter
+                      to={parsed.to}
+                      prefix={parsed.prefix}
+                      suffix={parsed.suffix}
+                      style={valStyle}
+                    />
+                  ) : (
+                    <div style={valStyle}>{s.val}</div>
+                  )}
+                  <div style={{ fontFamily: BODY, fontSize: 12, color: MUTED, letterSpacing: '0.05em', textTransform: 'uppercase' }}>{s.label}</div>
+                </div>
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </div>
     </section>
