@@ -50,11 +50,32 @@
 :root {
   --font-display: 'Space Grotesk', sans-serif;
   --font-body:    'DM Sans', sans-serif;
-  --radius-btn:   2px;
-  --radius-card:  2px;
-  --ease:         cubic-bezier(0.44, 0, 0.56, 1);
-  --duration-sm:  0.2s;
-  --duration-md:  0.3s;
+
+  /* Tipografia — receita premium */
+  --font-weight-display: 300;
+  --tracking-display:    -0.03em;
+  --text-hero:    clamp(2.75rem, 7vw, 6rem);
+  --text-h2:      clamp(2rem, 4.3vw, 3.25rem);
+  --text-eyebrow: 0.6875rem;
+  --leading-tight: 1.02;
+
+  /* Forma — suavizada (Giga) */
+  --radius-btn:   9999px;
+  --radius-card:  12px;
+  --radius-img:   6px;
+  --radius-chip:  6px;
+  --radius-input: 8px;
+
+  /* Movimento — tokens partilhados com motion.framer.js */
+  --dur-instant: 75ms;
+  --dur-xs: 150ms;
+  --dur-sm: 200ms;
+  --dur-md: 300ms;
+  --dur-lg: 420ms;
+  --ease:        cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-sm: 0.2s;
+  --duration-md: 0.3s;
 }
 
 /* ─── Base ─── */
