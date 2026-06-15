@@ -547,7 +547,9 @@ export default function Home() {
           <PrecosSection t={t} />
         </Reveal>
         <ProcessoSection t={t} />
-        <PortfolioSection />
+        <ScrollScene from={{ opacity: 0, y: 40 }} to={{ opacity: 1, y: 0 }} offset={['start end', 'start center']}>
+          <PortfolioSection />
+        </ScrollScene>
         <StatsSection t={t} />
         <GarantiaSection t={t} />
         <FaqSection t={t} />
