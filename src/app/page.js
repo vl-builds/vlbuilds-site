@@ -2,6 +2,10 @@
 
 import Header from './components/Header';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
+import { Pinned } from './components/motion/Pinned';
+import { ScrollScene } from './components/motion/ScrollScene';
+import { LineReveal } from './components/motion/LineReveal';
+import { Counter } from './components/motion/Counter';
 import PortfolioSection from './components/Selecionados';
 import PrecosSection from './components/Precos';
 import { useLocale } from './contexts/LocaleContext';
@@ -32,7 +36,7 @@ function BtnPrimary({ href, children, style = {} }) {
         padding: '12px 24px',
         background: FG,
         color: 'var(--color-on-fg)',
-        borderRadius: 2,
+        borderRadius: 'var(--radius-btn)',
         letterSpacing: '-0.01em',
         transition: 'background 0.2s, color 0.2s',
         ...style,
@@ -62,7 +66,7 @@ function BtnGhost({ href, children, target }) {
         background: 'transparent',
         color: MUTED,
         border: `1px solid ${BORDER1}`,
-        borderRadius: 2,
+        borderRadius: 'var(--radius-btn)',
         transition: 'color 0.2s, border-color 0.2s',
       }}
       onMouseEnter={e => { e.currentTarget.style.color = 'var(--color-fg)'; e.currentTarget.style.borderColor = 'var(--color-border-strong)'; }}
@@ -97,69 +101,64 @@ function Eyebrow({ children }) {
 
 function Hero({ t }) {
   return (
-    <section style={{ minHeight: '100vh', padding: '0 40px 80px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-      <div className="vl-hero-bg" aria-hidden="true" />
-      <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
+    <Pinned height="180vh">
+      <section style={{ flex: 1, minHeight: '100vh', padding: '0 40px 80px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+        <ScrollScene from={{ y: 0, scale: 1.05 }} to={{ y: -60, scale: 1 }} style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <div className="vl-hero-bg" aria-hidden="true" style={{ position: 'absolute', inset: 0 }} />
+        </ScrollScene>
 
-        <Reveal type="fadeIn" delay={0.05}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            fontFamily: DISPLAY,
-            fontSize: 11,
-            fontWeight: 500,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            color: ACCENT,
-            marginBottom: 32,
-          }}>
-            <span style={{
-              width: 6, height: 6,
-              borderRadius: '50%',
-              background: ACCENT,
-              animation: 'vlpulse 2s ease-in-out infinite',
-              display: 'inline-block',
-            }} />
-            {t.hero.badge}
-          </div>
-        </Reveal>
+        <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
 
-        <Reveal type="riseIn" delay={0.08}>
-          <h1 style={{
-            fontFamily: DISPLAY,
-            fontSize: 'clamp(3.5rem, 9vw, 11rem)',
-            fontWeight: 900,
-            letterSpacing: '-0.04em',
-            lineHeight: 0.92,
-            color: FG,
-            marginBottom: 48,
-            maxWidth: '10ch',
-          }}>
-            {t.hero.headline[0]}{' '}
-            <em style={{ fontStyle: 'normal', color: ACCENT }}>{t.hero.headline[1]}</em>
-          </h1>
-        </Reveal>
-
-        <Reveal type="riseIn" delay={0.15}>
-          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
-            <p style={{ fontFamily: BODY, fontSize: 16, color: MUTED, maxWidth: '42ch', lineHeight: 1.65 }}>
-              {t.hero.body}
-            </p>
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', flexShrink: 0 }}>
-              <BtnPrimary href="#contato">{t.hero.btnStart}</BtnPrimary>
-              <BtnGhost href="#trabalhos">{t.hero.btnWork}</BtnGhost>
+          <Reveal type="fadeIn" delay={0.05}>
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              fontFamily: DISPLAY, fontSize: 11, fontWeight: 500,
+              letterSpacing: '0.1em', textTransform: 'uppercase',
+              color: ACCENT, marginBottom: 32,
+            }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: ACCENT, animation: 'vlpulse 2s ease-in-out infinite', display: 'inline-block' }} />
+              {t.hero.badge}
             </div>
-          </div>
-        </Reveal>
-      </div>
+          </Reveal>
 
-      <div style={{ position: 'absolute', bottom: 0, left: 40, right: 40, height: 1, background: BORDER, zIndex: 1 }} />
+          <LineReveal
+            as="h1"
+            lines={[
+              t.hero.headline[0],
+              <em key="em" style={{ fontStyle: 'normal', color: ACCENT }}>{t.hero.headline[1]}</em>,
+            ]}
+            style={{
+              fontFamily: DISPLAY,
+              fontSize: 'var(--text-hero)',
+              fontWeight: 'var(--font-weight-display)',
+              letterSpacing: 'var(--tracking-display)',
+              lineHeight: 'var(--leading-tight)',
+              color: FG,
+              marginBottom: 48,
+              maxWidth: '12ch',
+            }}
+            stagger={0.14}
+            delay={0.1}
+          />
 
-      <style>{`
-        @keyframes vlpulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
-      `}</style>
-    </section>
+          <Reveal type="riseIn" delay={0.45}>
+            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
+              <p style={{ fontFamily: BODY, fontSize: 16, color: MUTED, maxWidth: '42ch', lineHeight: 1.65 }}>
+                {t.hero.body}
+              </p>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', flexShrink: 0 }}>
+                <BtnPrimary href="#contato">{t.hero.btnStart}</BtnPrimary>
+                <BtnGhost href="#trabalhos">{t.hero.btnWork}</BtnGhost>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        <div style={{ position: 'absolute', bottom: 0, left: 40, right: 40, height: 1, background: BORDER, zIndex: 1 }} />
+
+        <style>{`@keyframes vlpulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }`}</style>
+      </section>
+    </Pinned>
   );
 }
 
