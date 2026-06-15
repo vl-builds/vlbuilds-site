@@ -1,11 +1,11 @@
 'use client';
 
+import { useRef } from 'react';
 import Header from './components/Header';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
 import { Pinned } from './components/motion/Pinned';
 import { ScrollScene } from './components/motion/ScrollScene';
 import { LineReveal } from './components/motion/LineReveal';
-import { Counter } from './components/motion/Counter';
 import PortfolioSection from './components/Selecionados';
 import PrecosSection from './components/Precos';
 import { useLocale } from './contexts/LocaleContext';
@@ -100,10 +100,11 @@ function Eyebrow({ children }) {
 /* ─── seções ─── */
 
 function Hero({ t }) {
+  const heroRef = useRef(null);
   return (
-    <Pinned height="180vh">
+    <Pinned ref={heroRef} height="180vh">
       <section style={{ flex: 1, minHeight: '100vh', padding: '0 40px 80px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-        <ScrollScene from={{ y: 0, scale: 1.05 }} to={{ y: -60, scale: 1 }} style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <ScrollScene target={heroRef} offset={['start start', 'end start']} from={{ y: 0, scale: 1.05 }} to={{ y: -60, scale: 1 }} style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
           <div className="vl-hero-bg" aria-hidden="true" style={{ position: 'absolute', inset: 0 }} />
         </ScrollScene>
 

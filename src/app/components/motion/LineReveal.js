@@ -25,7 +25,7 @@ export function LineReveal({
     show: { transition: { staggerChildren: reduce ? 0 : stagger, delayChildren: delay } },
   };
   const line = {
-    hidden: { opacity: 0, y: reduce ? 0 : '0.7em' },
+    hidden: { opacity: reduce ? 1 : 0, y: reduce ? 0 : '0.7em' },
     show:   { opacity: 1, y: 0, transition: { duration: durations.lg, ease: easings.out } },
   };
 
