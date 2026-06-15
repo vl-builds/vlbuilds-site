@@ -170,18 +170,22 @@ function ServicosSection({ t }) {
       <div style={W}>
         <Reveal>
           <Eyebrow>{s.eyebrow}</Eyebrow>
-          <h2 style={{
+        </Reveal>
+        <LineReveal
+          as="h2"
+          lines={[s.heading[0], s.heading[1]]}
+          style={{
             fontFamily: DISPLAY,
-            fontSize: 'clamp(2.2rem, 5vw, 5.5rem)',
-            fontWeight: 900,
-            letterSpacing: '-0.04em',
-            lineHeight: 0.95,
+            fontSize: 'var(--text-h2)',
+            fontWeight: 'var(--font-weight-display)',
+            letterSpacing: 'var(--tracking-display)',
+            lineHeight: 'var(--leading-tight)',
             color: FG,
             marginBottom: 64,
-          }}>
-            {s.heading[0]}<br />{s.heading[1]}
-          </h2>
-        </Reveal>
+          }}
+          stagger={0.12}
+          delay={0.05}
+        />
 
         <StaggerContainer style={{
           display: 'grid',
@@ -199,7 +203,9 @@ function ServicosSection({ t }) {
                 onMouseEnter={e => { e.currentTarget.style.filter = 'brightness(1.14)'; }}
                 onMouseLeave={e => { e.currentTarget.style.filter = 'none'; }}
               >
-                <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em', marginBottom: 20 }}>{item.n}</div>
+                <ScrollScene from={{ y: 18 }} to={{ y: -18 }} style={{ marginBottom: 20 }}>
+                  <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em' }}>{item.n}</div>
+                </ScrollScene>
                 <h3 style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: FG, marginBottom: 10 }}>{item.titulo}</h3>
                 <p style={{ fontFamily: BODY, fontSize: 14, color: MUTED, lineHeight: 1.65 }}>{item.desc}</p>
               </div>
