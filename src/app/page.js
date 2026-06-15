@@ -518,22 +518,36 @@ function ContatoSection({ t }) {
     <section id="contato" style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}` }}>
       <div style={W}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80, alignItems: 'start' }}>
-          <Reveal>
-            <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h2 style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2.2rem, 4vw, 5rem)', letterSpacing: '-0.04em', lineHeight: 0.95, color: FG, marginBottom: 24 }}>
-              {c.heading[0]}<br />{c.heading[1]}
-            </h2>
-            <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.7, marginBottom: 8 }}>{c.response}</p>
-            <p style={{ fontFamily: BODY, fontSize: 14, color: 'var(--color-fg-3)', lineHeight: 1.65 }}>{c.body}</p>
-          </Reveal>
+          <div>
+            <Reveal><Eyebrow>{c.eyebrow}</Eyebrow></Reveal>
+            <LineReveal
+              as="h2"
+              lines={[c.heading[0], c.heading[1]]}
+              style={{
+                fontFamily: DISPLAY,
+                fontSize: 'var(--text-h2)',
+                fontWeight: 'var(--font-weight-display)',
+                letterSpacing: 'var(--tracking-display)',
+                lineHeight: 'var(--leading-tight)',
+                color: FG,
+                marginBottom: 24,
+              }}
+              stagger={0.12}
+              delay={0.05}
+            />
+            <Reveal type="riseIn" delay={0.15}>
+              <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.7, marginBottom: 8 }}>{c.response}</p>
+              <p style={{ fontFamily: BODY, fontSize: 14, color: 'var(--color-fg-3)', lineHeight: 1.65 }}>{c.body}</p>
+            </Reveal>
+          </div>
 
-          <Reveal delay={0.1}>
-            <form action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="SEU-ACCESS-KEY-AQUI" />
-              <input type="hidden" name="redirect" value="/obrigado" />
-              <input type="hidden" name="subject" value="Novo lead — VL Builds" />
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="SEU-ACCESS-KEY-AQUI" />
+            <input type="hidden" name="redirect" value="/obrigado" />
+            <input type="hidden" name="subject" value="Novo lead — VL Builds" />
 
-              <div style={{ display: 'grid', gap: 20 }}>
+            <StaggerContainer style={{ display: 'grid', gap: 20 }}>
+              <StaggerItem variant="slideUp">
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                   <div>
                     <label style={LBL}>{c.labelName}</label>
@@ -548,6 +562,8 @@ function ContatoSection({ t }) {
                       onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }} />
                   </div>
                 </div>
+              </StaggerItem>
+              <StaggerItem variant="slideUp">
                 <div>
                   <label style={LBL}>{c.labelSvc}</label>
                   <select name="servico" style={{ ...INP, cursor: 'pointer' }}
@@ -557,20 +573,24 @@ function ContatoSection({ t }) {
                     {c.services.map(sv => <option key={sv}>{sv}</option>)}
                   </select>
                 </div>
+              </StaggerItem>
+              <StaggerItem variant="slideUp">
                 <div>
                   <label style={LBL}>{c.labelMsg}</label>
                   <textarea name="message" rows={5} required placeholder={c.phMsg} style={{ ...INP, resize: 'vertical' }}
                     onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
                     onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }} />
                 </div>
+              </StaggerItem>
+              <StaggerItem variant="slideUp">
                 <button type="submit" style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, padding: '14px 28px', background: 'var(--color-fg)', color: 'var(--color-on-fg)', border: 'none', borderRadius: 'var(--radius-btn)', cursor: 'pointer', transition: 'background 0.2s, color 0.2s', alignSelf: 'flex-start', letterSpacing: '-0.01em' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-accent)'; e.currentTarget.style.color = 'var(--color-on-accent)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'var(--color-fg)'; e.currentTarget.style.color = 'var(--color-on-fg)'; }}>
                   {c.btn}
                 </button>
-              </div>
-            </form>
-          </Reveal>
+              </StaggerItem>
+            </StaggerContainer>
+          </form>
         </div>
       </div>
       <style>{`
