@@ -103,8 +103,8 @@ export default function PrecosSection({ t }) {
           <Eyebrow>{p.eyebrow}</Eyebrow>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 32, flexWrap: 'wrap', marginBottom: 56 }}>
             <h2 style={{
-              fontFamily: DISPLAY, fontSize: 'clamp(2.2rem, 5vw, 5.5rem)',
-              fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 0.95, color: FG,
+              fontFamily: DISPLAY, fontSize: 'var(--text-h2)',
+              fontWeight: 'var(--font-weight-display)', letterSpacing: 'var(--tracking-display)', lineHeight: 'var(--leading-tight)', color: FG,
             }}>
               {p.heading[0]}<br />{p.heading[1]}
             </h2>

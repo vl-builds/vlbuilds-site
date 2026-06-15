@@ -366,7 +366,7 @@ function GarantiaSection({ t }) {
               lines={[
                 <>{g.heading[0]}{' '}{g.heading[1]}{' '}<em style={{ fontStyle: 'normal', color: ACCENT }}>{g.heading[2]}</em></>,
               ]}
-              style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4vw, 5rem)', fontWeight: 'var(--font-weight-display)', letterSpacing: 'var(--tracking-display)', lineHeight: 'var(--leading-tight)', color: FG, marginBottom: 24 }}
+              style={{ fontFamily: DISPLAY, fontSize: 'var(--text-h2)', fontWeight: 'var(--font-weight-display)', letterSpacing: 'var(--tracking-display)', lineHeight: 'var(--leading-tight)', color: FG, marginBottom: 24 }}
               stagger={0.12}
               delay={0.05}
             />
@@ -474,25 +474,25 @@ function CtaSection({ t }) {
         }}
       />
       <div style={{ ...W, position: 'relative', zIndex: 1 }}>
+        <LineReveal
+          as="h2"
+          lines={[
+            <>{c.heading[0]}{' '}<em key="accent" style={{ fontStyle: 'normal', color: ACCENT }}>{c.heading[1]}</em></>,
+          ]}
+          style={{
+            fontFamily: DISPLAY,
+            fontSize: 'var(--text-hero)',
+            fontWeight: 'var(--font-weight-display)',
+            letterSpacing: 'var(--tracking-display)',
+            lineHeight: 'var(--leading-tight)',
+            color: FG,
+            maxWidth: '14ch',
+            margin: '0 auto 24px',
+          }}
+          stagger={0.12}
+          delay={0.05}
+        />
         <Reveal>
-          <LineReveal
-            as="h2"
-            lines={[
-              <>{c.heading[0]}{' '}<em key="accent" style={{ fontStyle: 'normal', color: ACCENT }}>{c.heading[1]}</em></>,
-            ]}
-            style={{
-              fontFamily: DISPLAY,
-              fontSize: 'var(--text-hero)',
-              fontWeight: 'var(--font-weight-display)',
-              letterSpacing: 'var(--tracking-display)',
-              lineHeight: 'var(--leading-tight)',
-              color: FG,
-              maxWidth: '14ch',
-              margin: '0 auto 24px',
-            }}
-            stagger={0.12}
-            delay={0.05}
-          />
           <p style={{ fontFamily: BODY, fontSize: 16, color: MUTED, maxWidth: '44ch', margin: '0 auto 40px', lineHeight: 1.65 }}>{c.body}</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <BtnPrimary href="#contato">{c.btn}</BtnPrimary>
@@ -557,7 +557,7 @@ function ContatoSection({ t }) {
                   </div>
                   <div>
                     <label style={LBL}>{c.labelEmail}</label>
-                    <input type="text" name="email" required placeholder={c.phEmail} style={INP}
+                    <input type="email" name="email" required placeholder={c.phEmail} style={INP}
                       onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
                       onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }} />
                   </div>

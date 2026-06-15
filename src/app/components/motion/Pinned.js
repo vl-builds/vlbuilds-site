@@ -14,7 +14,7 @@ import { useReducedMotion } from 'framer-motion';
 export const Pinned = forwardRef(function Pinned({ children, height = '200vh', className = '', style = {} }, ref) {
   const reduce = useReducedMotion();
   if (reduce) {
-    return <div ref={ref} className={className} style={style}>{children}</div>;
+    return <div ref={ref} className={className} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', ...style }}>{children}</div>;
   }
   return (
     <div ref={ref} className={className} style={{ position: 'relative', height, ...style }}>

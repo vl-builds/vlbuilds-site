@@ -237,7 +237,7 @@ export default function PortfolioSection() {
               <span style={{ whiteSpace: 'nowrap' }}>{p_t.eyebrow}</span>
               <span style={{ flex: 1, height: 1, background: PT.border, display: 'block' }} />
             </div>
-            <h2 style={{ fontFamily: PT.display, fontWeight: 900, fontSize: 'clamp(40px,5vw,60px)', letterSpacing: '-0.04em', lineHeight: 0.95, color: PT.fg, margin: 0 }}>{p_t.heading}</h2>
+            <h2 style={{ fontFamily: PT.display, fontWeight: 'var(--font-weight-display)', fontSize: 'var(--text-h2)', letterSpacing: 'var(--tracking-display)', lineHeight: 'var(--leading-tight)', color: PT.fg, margin: 0 }}>{p_t.heading}</h2>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 18, paddingBottom: 6 }}>
             <span style={{ fontFamily: PT.display, fontSize: 15, color: PT.muted, letterSpacing: '0.05em' }}>
