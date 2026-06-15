@@ -357,22 +357,31 @@ function GarantiaSection({ t }) {
   return (
     <section style={{ padding: '112px 0', borderTop: `1px solid ${BORDER}` }}>
       <div style={W}>
-        <Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
-            <div>
-              <Eyebrow>{g.eyebrow}</Eyebrow>
-              <h2 style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 5rem)', letterSpacing: '-0.04em', lineHeight: 0.95, color: FG, marginBottom: 24 }}>
-                {g.heading[0]}<br />{g.heading[1]}{' '}
-                <em style={{ fontStyle: 'normal', color: ACCENT }}>{g.heading[2]}</em>
-              </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+          <div>
+            <Reveal><Eyebrow>{g.eyebrow}</Eyebrow></Reveal>
+            <LineReveal
+              as="h2"
+              lines={[
+                <>{g.heading[0]}{' '}{g.heading[1]}{' '}<em style={{ fontStyle: 'normal', color: ACCENT }}>{g.heading[2]}</em></>,
+              ]}
+              style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4vw, 5rem)', fontWeight: 'var(--font-weight-display)', letterSpacing: 'var(--tracking-display)', lineHeight: 'var(--leading-tight)', color: FG, marginBottom: 24 }}
+              stagger={0.12}
+              delay={0.05}
+            />
+            <Reveal type="riseIn" delay={0.2}>
               <p style={{ fontFamily: BODY, fontSize: 15, color: MUTED, lineHeight: 1.7 }}>{g.body}</p>
-            </div>
-            <div style={{ borderLeft: `3px solid ${ACCENT}`, paddingLeft: 40 }}>
-              <p style={{ fontFamily: DISPLAY, fontSize: 18, fontWeight: 500, color: FG, lineHeight: 1.5, marginBottom: 32, letterSpacing: '-0.01em' }}>{g.quote}</p>
-              <BtnPrimary href="#contato">{g.btn}</BtnPrimary>
-            </div>
+            </Reveal>
           </div>
-        </Reveal>
+          <ScrollScene from={{ scale: 0.9, opacity: 0 }} to={{ scale: 1, opacity: 1 }} offset={['start end', 'center center']}>
+            <Reveal type="riseIn" delay={0.1}>
+              <div style={{ borderLeft: `3px solid ${ACCENT}`, paddingLeft: 40 }}>
+                <p style={{ fontFamily: DISPLAY, fontSize: 18, fontWeight: 500, color: FG, lineHeight: 1.5, marginBottom: 32, letterSpacing: '-0.01em' }}>{g.quote}</p>
+                <BtnPrimary href="#contato">{g.btn}</BtnPrimary>
+              </div>
+            </Reveal>
+          </ScrollScene>
+        </div>
       </div>
     </section>
   );
