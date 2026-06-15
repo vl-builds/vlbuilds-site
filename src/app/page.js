@@ -460,13 +460,39 @@ function FaqSection({ t }) {
 function CtaSection({ t }) {
   const c = t.cta;
   return (
-    <section style={{ padding: '128px 0', borderTop: `1px solid ${BORDER}`, background: BG1, textAlign: 'center' }}>
-      <div style={W}>
+    <section style={{ padding: '128px 0', borderTop: `1px solid ${BORDER}`, background: BG1, textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      {/* Subtle drifting gradient ambiance — reduced-motion disables via global rule */}
+      <div
+        aria-hidden="true"
+        className="vl-cta-drift"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: 'none',
+          background: 'linear-gradient(90deg, var(--color-accent-wash) 0%, transparent 50%, var(--color-accent-wash) 100%)',
+        }}
+      />
+      <div style={{ ...W, position: 'relative', zIndex: 1 }}>
         <Reveal>
-          <h2 style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2.5rem, 6vw, 7rem)', letterSpacing: '-0.04em', lineHeight: 0.95, color: FG, maxWidth: '14ch', margin: '0 auto 24px' }}>
-            {c.heading[0]}{' '}
-            <em style={{ fontStyle: 'normal', color: ACCENT }}>{c.heading[1]}</em>
-          </h2>
+          <LineReveal
+            as="h2"
+            lines={[
+              <>{c.heading[0]}{' '}<em key="accent" style={{ fontStyle: 'normal', color: ACCENT }}>{c.heading[1]}</em></>,
+            ]}
+            style={{
+              fontFamily: DISPLAY,
+              fontSize: 'var(--text-hero)',
+              fontWeight: 'var(--font-weight-display)',
+              letterSpacing: 'var(--tracking-display)',
+              lineHeight: 'var(--leading-tight)',
+              color: FG,
+              maxWidth: '14ch',
+              margin: '0 auto 24px',
+            }}
+            stagger={0.12}
+            delay={0.05}
+          />
           <p style={{ fontFamily: BODY, fontSize: 16, color: MUTED, maxWidth: '44ch', margin: '0 auto 40px', lineHeight: 1.65 }}>{c.body}</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <BtnPrimary href="#contato">{c.btn}</BtnPrimary>
