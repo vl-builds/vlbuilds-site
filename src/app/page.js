@@ -391,7 +391,7 @@ function ContatoSection({ t }) {
 
           <Reveal delay={0.1}>
             <form action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="SEU-ACCESS-KEY-AQUI" />
+              <input type="hidden" name="access_key" value="9bf71dda-e445-49f0-8f77-ecfcc635e98d" />
               <input type="hidden" name="redirect" value="/obrigado" />
               <input type="hidden" name="subject" value="Novo lead — VL Builds" />
 
