@@ -1,5 +1,6 @@
 'use client';
 
+import Script from 'next/script';
 import Header from './components/Header';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
 import PortfolioSection from './components/Selecionados';
@@ -425,6 +426,7 @@ function ContatoSection({ t }) {
                     onFocus={e => { e.target.style.borderColor = 'var(--color-accent)'; }}
                     onBlur={e => { e.target.style.borderColor = 'var(--color-border-1)'; }} />
                 </div>
+                <div className="h-captcha" data-captcha="true" />
                 <button type="submit" style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, padding: '14px 28px', background: 'var(--color-fg)', color: 'var(--color-on-fg)', border: 'none', borderRadius: 2, cursor: 'pointer', transition: 'background 0.2s, color 0.2s', alignSelf: 'flex-start', letterSpacing: '-0.01em' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-accent)'; e.currentTarget.style.color = 'var(--color-on-accent)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'var(--color-fg)'; e.currentTarget.style.color = 'var(--color-on-fg)'; }}>
@@ -479,6 +481,7 @@ export default function Home() {
 
   return (
     <>
+      <Script src="https://web3forms.com/client/script.js" strategy="lazyOnload" />
       <Header />
       <main style={{ background: BG }}>
         <Hero t={t} />
