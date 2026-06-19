@@ -89,9 +89,6 @@ export const translations = {
         { cat: 'Ferramenta', titulo: 'Rota Legal',                  desc: 'Plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente. Inclui comparador de países e questionário de perfil profissional.', tags: ['Next.js', 'Automação', 'Dados Oficiais'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
         { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para estafetas na Holanda acompanharem salários semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
         { cat: 'Site',       titulo: 'Henry Zuca',                  desc: 'Landing page de alta conversão para curso de delivery na Europa. FAQ em formato playlist, carrossel de depoimentos e bundle com DeliveryBase + Rota Legal. Vendido via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
-        { cat: 'Site',       titulo: 'Portfólio Criativo',         desc: 'Identidade visual forte, animações ricas e carregamento otimizado. Nota 97 no Lighthouse.',                        tags: ['Next.js', 'GSAP', 'Cloudflare'] },
-        { cat: 'Ferramenta', titulo: 'Gerador de Propostas',       desc: 'Formulário → PDF personalizado gerado automaticamente. Economiza 45 min por proposta enviada.',                    tags: ['React', 'PDF.js', 'Web3Forms'] },
-        { cat: 'IA',         titulo: 'Resumidor de Reuniões',      desc: 'Grava, transcreve e resume com GPT-4o em < 60 segundos. Integrado ao Notion do cliente.',                          tags: ['GPT-4o', 'Whisper', 'Notion API'] },
       ],
     },
     stats: [
@@ -228,9 +225,6 @@ export const translations = {
         { cat: 'Tool',       titulo: 'Rota Legal',                  desc: 'Immigration platform with official data from 10 European countries, updated monthly. Includes a country comparator and a professional profile questionnaire.', tags: ['Next.js', 'Automation', 'Official Data'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
         { cat: 'Tool',       titulo: 'DeliveryBase',                desc: 'Web app for delivery riders in the Netherlands to track weekly earnings. Reads PDFs from Thuisbezorgd and Uber Eats, calculates discrepancies, manages financial goals and includes a full Dutch tax guide.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
         { cat: 'Website',    titulo: 'Henry Zuca',                  desc: 'High-converting landing page for a delivery-in-Europe course. Playlist-style FAQ, testimonial carousel and a bundle including DeliveryBase + Rota Legal. Sold via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
-        { cat: 'Website',    titulo: 'Creative Portfolio',          desc: 'Strong visual identity, rich animations and optimised loading. Lighthouse score of 97.',               tags: ['Next.js', 'GSAP', 'Cloudflare'] },
-        { cat: 'Tool',       titulo: 'Proposal Generator',          desc: 'Form → customised PDF generated automatically. Saves 45 minutes per proposal sent.',                  tags: ['React', 'PDF.js', 'Web3Forms'] },
-        { cat: 'AI',         titulo: 'Meeting Summariser',          desc: 'Records, transcribes and summarises with GPT-4o in under 60 seconds. Integrated with Notion.',        tags: ['GPT-4o', 'Whisper', 'Notion API'] },
       ],
     },
     stats: [
@@ -367,9 +361,6 @@ export const translations = {
         { cat: 'Tool',         titulo: 'Rota Legal',                  desc: 'Immigratieplatform met officiële gegevens uit 10 Europese landen, maandelijks bijgewerkt. Inclusief landencomparator en vragenlijst voor beroepsprofiel.', tags: ['Next.js', 'Automatisering', 'Officiële Data'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
         { cat: 'Tool',         titulo: 'DeliveryBase',                desc: 'Web-app voor bezorgers in Nederland om wekelijkse inkomsten bij te houden. Leest PDFs van Thuisbezorgd en Uber Eats, berekent loonverschillen, beheert financiële doelen en bevat een complete gids voor Nederlandse belastingen.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
         { cat: 'Website',      titulo: 'Henry Zuca',                  desc: 'Hoogconverterende landingspagina voor een bezorgcursus in Europa. FAQ in playliststijl, testimonialcarrousel en bundel met DeliveryBase + Rota Legal. Verkoop via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
-        { cat: 'Website',      titulo: 'Creatief Portfolio',          desc: 'Sterke visuele identiteit, rijke animaties en geoptimaliseerd laden. Lighthouse-score van 97.',         tags: ['Next.js', 'GSAP', 'Cloudflare'] },
-        { cat: 'Tool',         titulo: 'Offertegenerator',            desc: 'Formulier → gepersonaliseerde PDF automatisch gegenereerd. Bespaart 45 minuten per verstuurde offerte.', tags: ['React', 'PDF.js', 'Web3Forms'] },
-        { cat: 'AI',           titulo: 'Vergaderingssamenvatting',    desc: 'Neemt op, transcribeert en vat samen met GPT-4o in minder dan 60 seconden. Geïntegreerd met Notion.',   tags: ['GPT-4o', 'Whisper', 'Notion API'] },
       ],
     },
     stats: [
