@@ -1,32 +1,42 @@
 import { NextResponse } from 'next/server';
 
-// País do visitante (ISO 3166-1 alpha-2) → mercado / tabela de preços.
-// Qualquer país fora desta lista cai no padrão: Portugal (EUR).
 const MARKET_BY_COUNTRY = {
-  NL: 'NL', // Holanda  → EUR (tabela NL)
-  PT: 'PT', // Portugal → EUR (tabela PT)
-  BR: 'BR', // Brasil   → BRL
+  NL: 'NL',
+  PT: 'PT',
+  BR: 'BR',
 };
-
 const DEFAULT_MARKET = 'PT';
 
+// Países de língua portuguesa
+const PT_COUNTRIES = new Set(['BR','PT','AO','MZ','CV','GW','ST','TL']);
+const DEFAULT_LOCALE = 'en';
+
+function countryToLocale(country) {
+  if (country === 'NL') return 'nl';
+  if (PT_COUNTRIES.has(country)) return 'pt';
+  return DEFAULT_LOCALE;
+}
+
 export function middleware(request) {
-  // No Cloudflare, o país do visitante (geolocalização por IP) chega no header
-  // `cf-ipcountry`. Mantém fallback para `x-vercel-ip-country` por segurança.
   const country = (
     request.headers.get('cf-ipcountry') ||
     request.headers.get('x-vercel-ip-country') ||
     ''
   ).toUpperCase();
+
   let market = MARKET_BY_COUNTRY[country] || DEFAULT_MARKET;
+  let locale = countryToLocale(country);
 
-  // Override via query string: ?market=NL|PT|BR — útil para testes em qualquer ambiente.
-  const override = (request.nextUrl.searchParams.get('market') || '').toUpperCase();
-  if (MARKET_BY_COUNTRY[override]) market = override;
+  // Override via query string para testes: ?market=NL|PT|BR e ?locale=pt|en|nl
+  const mOverride = (request.nextUrl.searchParams.get('market') || '').toUpperCase();
+  if (MARKET_BY_COUNTRY[mOverride]) market = mOverride;
 
-  // Repassa o mercado detectado ao layout (server component) via header da requisição.
+  const lOverride = (request.nextUrl.searchParams.get('locale') || '').toLowerCase();
+  if (['pt', 'en', 'nl'].includes(lOverride)) locale = lOverride;
+
   const headers = new Headers(request.headers);
   headers.set('x-vl-market', market);
+  headers.set('x-vl-locale', locale);
 
   return NextResponse.next({ request: { headers } });
 }

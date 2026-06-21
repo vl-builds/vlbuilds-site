@@ -48,7 +48,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const market = (await headers()).get('x-vl-market') || 'PT';
+  const hdrs   = await headers();
+  const market = hdrs.get('x-vl-market') || 'PT';
+  const locale = hdrs.get('x-vl-locale') || 'en';
 
   return (
     <html
@@ -175,7 +177,7 @@ export default async function RootLayout({ children }) {
           })}}
         />
       </head>
-      <body><ClientProviders initialMarket={market}>{children}</ClientProviders></body>
+      <body><ClientProviders initialMarket={market} initialLocale={locale}>{children}</ClientProviders></body>
     </html>
   );
 }

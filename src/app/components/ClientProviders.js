@@ -3,9 +3,9 @@
 import { LocaleProvider } from '../contexts/LocaleContext';
 import { MarketProvider } from '../contexts/MarketContext';
 
-export default function ClientProviders({ children, initialMarket }) {
+export default function ClientProviders({ children, initialMarket, initialLocale }) {
   return (
-    <LocaleProvider>
+    <LocaleProvider initialLocale={initialLocale}>
       <MarketProvider initialMarket={initialMarket}>{children}</MarketProvider>
     </LocaleProvider>
   );
