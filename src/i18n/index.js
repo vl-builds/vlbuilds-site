@@ -19,7 +19,7 @@ export const translations = {
     hero: {
       badge:    'Aberto para projetos',
       headline: ['Ideias que viram', 'produto.'],
-      body:     'Sites, ferramentas, IA, planilhas, SEO e tráfego pago — entregues com qualidade profissional, rápido e sem enrolação.',
+      body:     'Criação de sites, ferramentas digitais e soluções com IA — entregues com qualidade profissional.',
       btnStart: 'Começar projeto',
       btnWork:  'Ver trabalhos →',
     },
@@ -155,7 +155,7 @@ export const translations = {
     hero: {
       badge:    'Available for projects',
       headline: ['Ideas that become', 'products.'],
-      body:     'Websites, tools, AI, spreadsheets, SEO and paid traffic — delivered with professional quality, fast and no nonsense.',
+      body:     'Websites, tools, AI, spreadsheets, SEO and paid traffic — built in Portugal, delivered fast and with no nonsense.',
       btnStart: 'Start a project',
       btnWork:  'View work →',
     },

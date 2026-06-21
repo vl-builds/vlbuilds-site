@@ -19,10 +19,10 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
+  title: 'VL Builds — Criação de Sites, Ferramentas Digitais e IA',
   metadataBase: new URL('https://vlbuilds.com'),
   description:
-    'Agência especializada em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e apresentações profissionais.',
+    'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO. Entrega rápida e sem enrolação.',
   authors: [{ name: 'Vitor' }],
   alternates: {
     canonical: 'https://vlbuilds.com',
