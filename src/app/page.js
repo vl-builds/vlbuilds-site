@@ -483,6 +483,12 @@ function Footer({ t }) {
             </a>
           ))}
           <span style={{ width: 1, height: 14, background: BORDER, display: 'inline-block' }} />
+          <a href="/politica-de-privacidade"
+            style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)', transition: 'color 0.2s' }}
+            onMouseEnter={e => { e.target.style.color = 'var(--color-fg-2)'; }}
+            onMouseLeave={e => { e.target.style.color = 'var(--color-fg-3)'; }}>
+            Privacidade
+          </a>
           <a href="https://www.instagram.com/vl.builds/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
             style={{ color: 'var(--color-fg-3)', display: 'flex', transition: 'color 0.2s' }}
             onMouseEnter={e => { e.currentTarget.style.color = 'var(--color-fg-2)'; }}
