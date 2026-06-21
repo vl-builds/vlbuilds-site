@@ -1,7 +1,8 @@
 'use client';
 
-import Script from 'next/script';
+import Image from 'next/image';
 import Header from './components/Header';
+import CaptchaLoader from './components/CaptchaLoader';
 import { Reveal, StaggerContainer, StaggerItem } from './components/Reveal';
 import PortfolioSection from './components/Selecionados';
 import PrecosSection from './components/Precos';
@@ -195,14 +196,26 @@ function ServicosSection({ t }) {
           {s.items.map(item => (
             <StaggerItem key={item.n} variant="fadeIn">
               <div
-                className={`vl-svc-card vl-svc-${item.n}`}
+                className="vl-svc-card"
                 style={{ padding: '40px 36px', height: '100%' }}
                 onMouseEnter={e => { e.currentTarget.style.filter = 'brightness(1.14)'; }}
                 onMouseLeave={e => { e.currentTarget.style.filter = 'none'; }}
               >
-                <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em', marginBottom: 20 }}>{item.n}</div>
-                <h3 style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: FG, marginBottom: 10 }}>{item.titulo}</h3>
-                <p style={{ fontFamily: BODY, fontSize: 14, color: MUTED, lineHeight: 1.65 }}>{item.desc}</p>
+                <div aria-hidden="true" className="vl-svc-img vl-svc-img-dark"
+                  style={{ position: 'absolute', inset: '-20px', filter: 'blur(1px)', opacity: 0.4, zIndex: 0 }}>
+                  <Image src={`/services/${item.n}-dark.webp`} alt="" fill
+                    sizes="(max-width: 768px) 100vw, 400px" style={{ objectFit: 'cover' }} />
+                </div>
+                <div aria-hidden="true" className="vl-svc-img vl-svc-img-light"
+                  style={{ position: 'absolute', inset: '-20px', filter: 'blur(1px)', opacity: 0.4, zIndex: 0 }}>
+                  <Image src={`/services/${item.n}-light.webp`} alt="" fill
+                    sizes="(max-width: 768px) 100vw, 400px" style={{ objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'relative', zIndex: 2 }}>
+                  <div style={{ fontFamily: DISPLAY, fontSize: 11, color: ACCENT, letterSpacing: '0.1em', marginBottom: 20 }}>{item.n}</div>
+                  <h3 style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: FG, marginBottom: 10 }}>{item.titulo}</h3>
+                  <p style={{ fontFamily: BODY, fontSize: 14, color: MUTED, lineHeight: 1.65 }}>{item.desc}</p>
+                </div>
               </div>
             </StaggerItem>
           ))}
@@ -500,7 +513,7 @@ export default function Home() {
 
   return (
     <>
-      <Script src="https://web3forms.com/client/script.js" strategy="lazyOnload" />
+      <CaptchaLoader />
       <Header />
       <main style={{ background: BG }}>
         <Hero t={t} />
