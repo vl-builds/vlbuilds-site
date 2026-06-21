@@ -466,8 +466,9 @@ function Footer({ t }) {
         <div style={{ fontFamily: DISPLAY, fontSize: 14, fontWeight: 700, color: MUTED, letterSpacing: '-0.01em' }}>
           VL<span style={{ color: ACCENT }}>.</span>Builds
         </div>
-        <div style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)' }}>
-          © {new Date().getFullYear()} VL Builds. {t.footer.copy}
+        <div style={{ fontFamily: BODY, fontSize: 12, color: 'var(--color-fg-3)', textAlign: 'center', lineHeight: 1.7 }}>
+          <div>© {new Date().getFullYear()} VL Builds. {t.footer.copy}</div>
+          <div>NIF: [PREENCHER_NIF] · Portugal</div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           {[
