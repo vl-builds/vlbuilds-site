@@ -2,7 +2,6 @@ export const metadata = {
   title: 'Política de Privacidade — VL Builds',
   description: 'Como a VL Builds recolhe, usa e protege os seus dados pessoais.',
   alternates: { canonical: 'https://vlbuilds.com/politica-de-privacidade' },
-  robots: { index: false },
 };
 
 export default function PoliticaPrivacidade() {

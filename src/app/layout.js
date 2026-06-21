@@ -103,28 +103,28 @@ export default async function RootLayout({ children }) {
                 "name": "Criação de Sites",
                 "provider": { "@id": "https://vlbuilds.com/#organization" },
                 "description": "Landing pages, portfólios e sites institucionais modernos, rápidos e prontos para converter.",
-                "areaServed": "PT"
+                "areaServed": ["PT", "NL", "BR"]
               },
               {
                 "@type": "Service",
                 "name": "Ferramentas Digitais",
                 "provider": { "@id": "https://vlbuilds.com/#organization" },
                 "description": "Apps web e automações que resolvem problemas reais e poupam horas do seu dia.",
-                "areaServed": "PT"
+                "areaServed": ["PT", "NL", "BR"]
               },
               {
                 "@type": "Service",
                 "name": "Soluções com IA",
                 "provider": { "@id": "https://vlbuilds.com/#organization" },
                 "description": "Chatbots, automações inteligentes e integrações com GPT/Claude que trabalham por você.",
-                "areaServed": "PT"
+                "areaServed": ["PT", "NL", "BR"]
               },
               {
                 "@type": "Service",
                 "name": "SEO & Presença Digital",
                 "provider": { "@id": "https://vlbuilds.com/#organization" },
                 "description": "Otimização para o Google: páginas empresariais que aparecem nas buscas certas.",
-                "areaServed": "PT"
+                "areaServed": ["PT", "NL", "BR"]
               },
               {
                 "@type": "FAQPage",
