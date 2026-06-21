@@ -1,2 +1,23 @@
+# Cache agressivo para assets estáticos imutáveis do Next.js
 /_next/static/*
-  Cache-Control: public,max-age=31536000,immutable
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache para imagens públicas (1 semana, revalidar em background)
+/services/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/projetos/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# llms.txt — curto (muda com frequência)
+/llms.txt
+  Cache-Control: public, max-age=86400
