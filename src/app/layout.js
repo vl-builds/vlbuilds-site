@@ -20,6 +20,7 @@ const dmSans = DM_Sans({
 
 export const metadata = {
   title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
+  metadataBase: new URL('https://vlbuilds.com'),
   description:
     'Agência especializada em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e apresentações profissionais.',
   authors: [{ name: 'Vitor' }],
