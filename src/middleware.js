@@ -20,12 +20,9 @@ export function middleware(request) {
   ).toUpperCase();
   let market = MARKET_BY_COUNTRY[country] || DEFAULT_MARKET;
 
-  // Atalho APENAS em desenvolvimento: ?market=NL|PT|BR para testar as 3 tabelas
-  // localmente (onde não há geolocalização). Ignorado em produção.
-  if (process.env.NODE_ENV !== 'production') {
-    const override = (request.nextUrl.searchParams.get('market') || '').toUpperCase();
-    if (MARKET_BY_COUNTRY[override]) market = override;
-  }
+  // Override via query string: ?market=NL|PT|BR — útil para testes em qualquer ambiente.
+  const override = (request.nextUrl.searchParams.get('market') || '').toUpperCase();
+  if (MARKET_BY_COUNTRY[override]) market = override;
 
   // Repassa o mercado detectado ao layout (server component) via header da requisição.
   const headers = new Headers(request.headers);
