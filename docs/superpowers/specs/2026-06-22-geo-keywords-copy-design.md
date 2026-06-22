@@ -26,25 +26,25 @@ Copy proposto (final, pronto a implementar):
 
 ### pt (Portugal)
 - **title:** `Criação de Sites, Ferramentas Digitais e IA em Portugal — VL Builds`
-- **description:** `Freelancer em Portugal especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel e SEO. Entrega rápida e sem enrolação.`
+- **description:** `Freelancer em Portugal especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel e SEO.`
 - **og:title:** `VL Builds — Sites, Ferramentas Digitais e IA em Portugal`
 - **og:description:** `Transforme as suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.`
 
 ### pt-BR (Brasil)
 - **title:** `Criação de Sites, Ferramentas Digitais e IA no Brasil — VL Builds`
-- **description:** `Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO para o Brasil. Entrega rápida e sem enrolação.`
+- **description:** `Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO para o Brasil.`
 - **og:title:** `VL Builds — Sites, Ferramentas Digitais e IA no Brasil`
 - **og:description:** `Transforme suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.`
 
 ### en (internacional)
 - **title:** `Websites, Digital Tools & AI Solutions — VL Builds`
-- **description:** `Freelance developer building websites, digital tools, AI solutions, spreadsheets and SEO. Based in Portugal, delivered fast and with no nonsense.`
+- **description:** `Freelance developer building websites, digital tools, AI solutions, spreadsheets and SEO. Based in Portugal.`
 - **og:title:** `VL Builds — Websites, Digital Tools & AI Solutions`
 - **og:description:** `Turn your ideas into digital products. Websites, tools and AI solutions, delivered with professional quality.`
 
 ### nl (Nederland)
 - **title:** `Websites, Digitale Tools en AI in Nederland — VL Builds`
-- **description:** `Freelancer voor websites, digitale tools, AI-oplossingen, spreadsheets en SEO in Nederland. Snel geleverd, zonder gedoe.`
+- **description:** `Freelancer voor websites, digitale tools, AI-oplossingen, spreadsheets en SEO in Nederland.`
 - **og:title:** `VL Builds — Websites, Digitale Tools en AI in Nederland`
 - **og:description:** `Verander je ideeën in digitale producten. Websites, tools en AI-oplossingen, geleverd met professionele kwaliteit.`
 
@@ -56,8 +56,8 @@ Manter `hero.headline` e `hero.badge` intactos. Atualizar `hero.body` por idioma
 
 - **pt:** `Criação de sites, ferramentas digitais e soluções com IA em Portugal — entregues com qualidade profissional.`
 - **pt-BR:** `Criação de sites, ferramentas digitais e soluções com IA no Brasil — entregues com qualidade profissional.`
-- **en:** *(manter — já refere "built in Portugal")* `Websites, tools, AI, spreadsheets, SEO and paid traffic — built in Portugal, delivered fast and with no nonsense.`
-- **nl:** `Websites, tools, AI, spreadsheets, SEO en betaald verkeer in Nederland — geleverd met professionele kwaliteit, snel en zonder gedoe.`
+- **en:** `Websites, tools, AI, spreadsheets, SEO and paid traffic — built in Portugal.`
+- **nl:** `Websites, tools, AI, spreadsheets, SEO en betaald verkeer in Nederland — geleverd met professionele kwaliteit.`
 
 ## Fora de âmbito
 
