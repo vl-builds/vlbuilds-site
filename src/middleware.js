@@ -7,12 +7,13 @@ const MARKET_BY_COUNTRY = {
 };
 const DEFAULT_MARKET = 'PT';
 
-// Países de língua portuguesa
-const PT_COUNTRIES = new Set(['BR','PT','AO','MZ','CV','GW','ST','TL']);
+// Países de língua portuguesa (Brasil recebe pt-BR; restantes recebem pt-PT)
+const PT_COUNTRIES = new Set(['PT','AO','MZ','CV','GW','ST','TL']);
 const DEFAULT_LOCALE = 'en';
 
 function countryToLocale(country) {
   if (country === 'NL') return 'nl';
+  if (country === 'BR') return 'pt-BR';
   if (PT_COUNTRIES.has(country)) return 'pt';
   return DEFAULT_LOCALE;
 }
@@ -31,8 +32,10 @@ export function middleware(request) {
   const mOverride = (request.nextUrl.searchParams.get('market') || '').toUpperCase();
   if (MARKET_BY_COUNTRY[mOverride]) market = mOverride;
 
-  const lOverride = (request.nextUrl.searchParams.get('locale') || '').toLowerCase();
-  if (['pt', 'en', 'nl'].includes(lOverride)) locale = lOverride;
+  const lParam = request.nextUrl.searchParams.get('locale') || '';
+  // normaliza 'pt-br' → 'pt-BR'; restantes minúsculas
+  const lOverride = lParam.toLowerCase() === 'pt-br' ? 'pt-BR' : lParam.toLowerCase();
+  if (['pt', 'pt-BR', 'en', 'nl'].includes(lOverride)) locale = lOverride;
 
   const headers = new Headers(request.headers);
   headers.set('x-vl-market', market);

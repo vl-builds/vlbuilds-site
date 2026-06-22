@@ -18,43 +18,56 @@ const dmSans = DM_Sans({
   display: 'swap',
 });
 
-export const metadata = {
-  title: 'VL Builds — Criação de Sites, Ferramentas Digitais e IA',
-  metadataBase: new URL('https://vlbuilds.com'),
-  description:
-    'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO. Entrega rápida e sem enrolação.',
-  authors: [{ name: 'Vitor' }],
-  alternates: {
-    canonical: 'https://vlbuilds.com',
-  },
-  icons: {
-    icon: '/logo-site.png',
-    apple: '/logo-site.png',
-  },
-  openGraph: {
-    title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
-    description: 'Transforme suas ideias em produtos digitais.',
-    type: 'website',
-    locale: 'pt_PT',
-    url: 'https://vlbuilds.com',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'VL Builds' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
-    description: 'Transforme suas ideias em produtos digitais.',
-    images: ['/og-image.jpg'],
-  },
-};
+// og:locale segue a língua detetada por IP (cf-ipcountry via middleware).
+const OG_LOCALE = { pt: 'pt_PT', 'pt-BR': 'pt_BR', en: 'en_US', nl: 'nl_NL' };
+
+export async function generateMetadata() {
+  const hdrs   = await headers();
+  const locale = hdrs.get('x-vl-locale') || 'en';
+  const ogLocale = OG_LOCALE[locale] || 'pt_PT';
+
+  return {
+    title: 'VL Builds — Criação de Sites, Ferramentas Digitais e IA',
+    metadataBase: new URL('https://vlbuilds.com'),
+    description:
+      'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO. Entrega rápida e sem enrolação.',
+    authors: [{ name: 'Vitor' }],
+    alternates: {
+      canonical: 'https://vlbuilds.com',
+    },
+    icons: {
+      icon: '/logo-site.png',
+      apple: '/logo-site.png',
+    },
+    openGraph: {
+      title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
+      description: 'Transforme suas ideias em produtos digitais.',
+      type: 'website',
+      locale: ogLocale,
+      alternateLocale: Object.values(OG_LOCALE).filter((l) => l !== ogLocale),
+      url: 'https://vlbuilds.com',
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'VL Builds' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
+      description: 'Transforme suas ideias em produtos digitais.',
+      images: ['/og-image.jpg'],
+    },
+  };
+}
 
 export default async function RootLayout({ children }) {
   const hdrs   = await headers();
   const market = hdrs.get('x-vl-market') || 'PT';
   const locale = hdrs.get('x-vl-locale') || 'en';
 
+  // lang do <html> acompanha a língua detectada (SEO + acessibilidade)
+  const htmlLang = { pt: 'pt-PT', 'pt-BR': 'pt-BR', nl: 'nl', en: 'en' }[locale] || 'en';
+
   return (
     <html
-      lang="pt-PT"
+      lang={htmlLang}
       data-theme="dark"
       className={`${spaceGrotesk.variable} ${dmSans.variable}`}
       suppressHydrationWarning

@@ -1,13 +1,149 @@
-export const locales = ['pt', 'en', 'nl'];
+export const locales = ['pt', 'pt-BR', 'en', 'nl'];
 export const defaultLocale = 'pt';
 
-export const localeNames = { pt: 'PT', en: 'EN', nl: 'NL' };
-export const localeFull  = { pt: 'Português', en: 'English', nl: 'Nederlands' };
+export const localeNames = { pt: 'PT', 'pt-BR': 'BR', en: 'EN', nl: 'NL' };
+export const localeFull  = { pt: 'Português', 'pt-BR': 'Português (BR)', en: 'English', nl: 'Nederlands' };
 
 export const translations = {
 
-  /* ─── PORTUGUÊS ─── */
+  /* ─── PORTUGUÊS (EUROPEU) ─── */
   pt: {
+    nav: {
+      services:  'Serviços',
+      pricing:   'Preços',
+      work:      'Trabalhos',
+      process:   'Processo',
+      faq:       'FAQ',
+      cta:       'Fale comigo',
+    },
+    hero: {
+      badge:    'Disponível para projetos',
+      headline: ['Ideias que viram', 'produto.'],
+      body:     'Criação de sites, ferramentas digitais e soluções com IA — entregues com qualidade profissional.',
+      btnStart: 'Começar projeto',
+      btnWork:  'Ver trabalhos →',
+    },
+    services: {
+      eyebrow: 'Serviços',
+      heading: ['O que posso', 'fazer por si'],
+      items: [
+        { n: '01', titulo: 'Criação de Sites',     desc: 'Landing pages, portefólios e sites institucionais modernos, rápidos e prontos para converter.' },
+        { n: '02', titulo: 'Ferramentas Digitais', desc: 'Apps web e automações que resolvem problemas reais e poupam horas do seu dia.' },
+        { n: '03', titulo: 'Soluções com IA',      desc: 'Chatbots, automações inteligentes e integrações com GPT/Claude que trabalham por si.' },
+        { n: '04', titulo: 'Folhas de Cálculo Excel', desc: 'Dashboards, relatórios automáticos e sistemas de controlo no Excel ou Google Sheets.' },
+        { n: '05', titulo: 'Tráfego Pago',         desc: 'Campanhas no Google Ads e Meta Ads criadas para atrair os clientes certos e maximizar o retorno do investimento.' },
+        { n: '06', titulo: 'SEO & Presença Digital', desc: 'Otimização para o Google: páginas empresariais que aparecem nas pesquisas certas e trazem clientes sem pagar por clique.' },
+      ],
+    },
+    pricing: {
+      eyebrow: 'Preços',
+      heading: ['Escolha o', 'ponto de partida'],
+      marketLabel: 'Preços em',
+      fromLabel: 'a partir de',
+      popular: 'mais escolhido',
+      perMonth: '/mês',
+      quote: 'sob orçamento',
+      ctaPackage: 'Começar',
+      packages: [
+        { id: 'essencial',    nome: 'Essencial',    features: ['Landing page de 1 página', 'Logótipo profissional', 'Otimizado para telemóvel', 'Pronto para converter'] },
+        { id: 'profissional', nome: 'Profissional', features: ['Site até 5 páginas', 'Identidade visual completa', 'Auditoria de SEO', 'Animações e alta performance'] },
+        { id: 'completo',     nome: 'Completo',     features: ['Loja online ou site avançado', 'Identidade visual completa', 'SEO + setup de tráfego pago', 'Integrações à medida'] },
+      ],
+      recurringTitle: 'Para continuar a crescer',
+      recurringNote: 'mensalidades opcionais — cancele quando quiser',
+      recurring: [
+        { id: 'seo',     nome: 'Gestão de SEO' },
+        { id: 'trafego', nome: 'Gestão de tráfego pago' },
+        { id: 'ia',      nome: 'Manutenção de IA' },
+      ],
+      addonsTitle: 'Adicionais à la carte',
+      addons: [
+        { id: 'identidade',   nome: 'Identidade visual completa' },
+        { id: 'social',       nome: 'Pacote 10 peças sociais' },
+        { id: 'peca',         nome: 'Peça de design avulsa' },
+        { id: 'dashboard',    nome: 'Folha de cálculo / dashboard' },
+        { id: 'apresentacao', nome: 'Apresentação profissional' },
+        { id: 'chatbot',      nome: 'Chatbot / automação IA' },
+        { id: 'ferramenta',   nome: 'Ferramenta à medida' },
+        { id: 'hora',         nome: 'Hora avulsa' },
+      ],
+      customCta: 'Projeto maior ou fora destes formatos?',
+      footnote: 'Valores "a partir de" — o preço final depende do âmbito. Não inclui alojamento, domínio nem verba de anúncios. Pagamento: 50% no início e 50% na entrega.',
+    },
+    process: {
+      eyebrow: 'Como funciona',
+      heading: ['Simples.', 'Transparente.'],
+      items: [
+        { n: '01', titulo: 'Briefing',   desc: 'Percebemos o seu objetivo, público e prazo ao detalhe.' },
+        { n: '02', titulo: 'Construção', desc: 'Desenvolvemos com atualizações regulares. Acompanha tudo.' },
+        { n: '03', titulo: 'Entrega',    desc: 'Revisões até aprovar. Código limpo, documentado, seu.' },
+      ],
+    },
+    portfolio: {
+      eyebrow: 'Em destaque',
+      heading: 'Selecionados',
+      soon: 'em breve',
+      viewProject: 'Ver projeto',
+      counterLabel: 'projeto',
+      items: [
+        { cat: 'Ferramenta', titulo: 'Rota Legal',                  desc: 'Plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente. Inclui comparador de países e questionário de perfil profissional.', tags: ['Next.js', 'Automação', 'Dados Oficiais'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
+        { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para estafetas na Holanda acompanharem ganhos semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
+        { cat: 'Site',       titulo: 'Henry Zuca',                  desc: 'Landing page de alta conversão para curso de delivery na Europa. FAQ em formato playlist, carrossel de depoimentos e bundle com DeliveryBase + Rota Legal. Vendido via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
+      ],
+    },
+    stats: [
+      { val: '100%',   label: 'código próprio' },
+      { val: '< 24h',  label: 'tempo de resposta' },
+      { val: '7 dias', label: 'entrega média' },
+      { val: '∞',      label: 'revisões' },
+    ],
+    guarantee: {
+      eyebrow: 'Garantia',
+      heading:  ['Não aprova,', 'não paga', 'o resto.'],
+      body:     'Revisões ilimitadas até estar 100% satisfeito. Código limpo, entregue no prazo, sem surpresas.',
+      quote:    'Revisões ilimitadas até aprovação. Código limpo e documentado. Entrega no prazo combinado. Sem custos ocultos.',
+      btn:      'Começar agora',
+    },
+    faq: {
+      eyebrow: 'FAQ',
+      heading: ['Perguntas', 'frequentes'],
+      items: [
+        { q: 'Qual o prazo de entrega?',          a: 'Sites simples ficam prontos em 5–7 dias úteis. Projetos maiores têm cronograma definido no briefing.' },
+        { q: 'Como funciona o pagamento?',        a: '50% na aprovação do briefing e 50% na entrega final.' },
+        { q: 'O código fica comigo?',             a: 'Sim, 100%. Recebe todo o código-fonte. Sem lock-in.' },
+        { q: 'Há suporte após a entrega?',        a: 'Sim, ofereço suporte pós-entrega e pacotes de manutenção mensal.' },
+        { q: 'Trabalha com orçamentos pequenos?', a: 'Diga-me o que precisa e encontramos o melhor formato.' },
+      ],
+    },
+    cta: {
+      heading: ['Pronto para construir algo', 'incrível?'],
+      body:    'Conte-me a sua ideia. Em 24 horas tem uma proposta personalizada.',
+      btn:     'Começar projeto',
+      email:   'Enviar e-mail',
+    },
+    contact: {
+      eyebrow:    'Contacto',
+      heading:    ['Vamos', 'conversar'],
+      response:   'Respondo em 24 horas.',
+      body:       'Conte-me o que precisa — seja um site, uma ferramenta, uma folha de cálculo ou uma solução com IA.',
+      labelName:  'Nome',
+      phName:     'O seu nome',
+      labelEmail: 'E-mail',
+      phEmail:    'contacto@email.com',
+      labelSvc:   'Serviço',
+      selectSvc:  'Selecione',
+      services:   ['Criação de Site', 'Ferramenta Digital', 'Solução com IA', 'Folha de Cálculo Excel', 'Tráfego Pago', 'SEO & Presença Digital', 'Ainda não sei'],
+      labelMsg:   'Mensagem',
+      phMsg:      'Descreva o que precisa...',
+      btn:        'Enviar mensagem',
+    },
+    footer: {
+      copy: 'Todos os direitos reservados.',
+    },
+  },
+
+  /* ─── PORTUGUÊS (BRASIL) ─── */
+  'pt-BR': {
     nav: {
       services:  'Serviços',
       pricing:   'Preços',
@@ -28,10 +164,10 @@ export const translations = {
       heading: ['O que posso', 'fazer por você'],
       items: [
         { n: '01', titulo: 'Criação de Sites',     desc: 'Landing pages, portfólios e sites institucionais modernos, rápidos e prontos para converter.' },
-        { n: '02', titulo: 'Ferramentas Digitais', desc: 'Apps web e automações que resolvem problemas reais e poupam horas do seu dia.' },
+        { n: '02', titulo: 'Ferramentas Digitais', desc: 'Apps web e automações que resolvem problemas reais e economizam horas do seu dia.' },
         { n: '03', titulo: 'Soluções com IA',      desc: 'Chatbots, automações inteligentes e integrações com GPT/Claude que trabalham por você.' },
         { n: '04', titulo: 'Planilhas Excel',      desc: 'Dashboards, relatórios automáticos e sistemas de controle no Excel ou Google Sheets.' },
-        { n: '05', titulo: 'Tráfego Pago',         desc: 'Campanhas no Google Ads e Meta Ads criadas para atrair clientes certos e maximizar o retorno sobre o investimento.' },
+        { n: '05', titulo: 'Tráfego Pago',         desc: 'Campanhas no Google Ads e Meta Ads criadas para atrair os clientes certos e maximizar o retorno sobre o investimento.' },
         { n: '06', titulo: 'SEO & Presença Digital', desc: 'Otimização para o Google: páginas empresariais que aparecem nas buscas certas e trazem clientes sem pagar por clique.' },
       ],
     },
@@ -50,7 +186,7 @@ export const translations = {
         { id: 'completo',     nome: 'Completo',     features: ['Loja online ou site avançado', 'Identidade visual completa', 'SEO + setup de tráfego pago', 'Integrações sob medida'] },
       ],
       recurringTitle: 'Para manter crescendo',
-      recurringNote: 'mensalidades opcionais — cancela quando quiser',
+      recurringNote: 'mensalidades opcionais — cancele quando quiser',
       recurring: [
         { id: 'seo',     nome: 'Gestão de SEO' },
         { id: 'trafego', nome: 'Gestão de tráfego pago' },
@@ -87,7 +223,7 @@ export const translations = {
       counterLabel: 'projeto',
       items: [
         { cat: 'Ferramenta', titulo: 'Rota Legal',                  desc: 'Plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente. Inclui comparador de países e questionário de perfil profissional.', tags: ['Next.js', 'Automação', 'Dados Oficiais'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
-        { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para estafetas na Holanda acompanharem salários semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
+        { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para entregadores na Holanda acompanharem ganhos semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
         { cat: 'Site',       titulo: 'Henry Zuca',                  desc: 'Landing page de alta conversão para curso de delivery na Europa. FAQ em formato playlist, carrossel de depoimentos e bundle com DeliveryBase + Rota Legal. Vendido via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
       ],
     },
