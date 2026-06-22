@@ -61,6 +61,16 @@ const HREFLANG = {
   'x-default': 'https://vlbuilds.com',
 };
 
+// serviceType (categoria Schema.org estável, EN) por número de serviço — ver i18n services.items.
+const SERVICE_TYPE = {
+  '01': 'Web Design',
+  '02': 'Web Application Development',
+  '03': 'AI Integration',
+  '04': 'Spreadsheet Development',
+  '05': 'Paid Advertising',
+  '06': 'Search Engine Optimization',
+};
+
 export async function generateMetadata() {
   const hdrs   = await headers();
   const locale = hdrs.get('x-vl-locale') || 'en';
@@ -118,8 +128,10 @@ export default async function RootLayout({ children }) {
         "@id": "https://vlbuilds.com/#organization",
         "name": "VL Builds",
         "url": "https://vlbuilds.com",
-        "logo": { "@type": "ImageObject", "url": "https://vlbuilds.com/logo-site.png" },
+        "description": "Freelance studio building websites, digital tools, AI solutions, spreadsheets, SEO and paid traffic for clients in Portugal, Brazil and the Netherlands.",
+        "logo": { "@type": "ImageObject", "url": "https://vlbuilds.com/logo-site.png", "contentUrl": "https://vlbuilds.com/logo-site.png", "width": 512, "height": 512 },
         "email": "contact@vlbuilds.com",
+        "contactPoint": { "@type": "ContactPoint", "email": "contact@vlbuilds.com", "contactType": "customer support", "availableLanguage": ["Portuguese", "English", "Dutch"] },
         "areaServed": ["PT", "NL", "BR"],
         "sameAs": [
           "https://www.instagram.com/vl.builds/",
@@ -147,6 +159,7 @@ export default async function RootLayout({ children }) {
         "@type": "Service",
         "@id": `https://vlbuilds.com/#service-${s.n}`,
         "name": s.titulo,
+        "serviceType": SERVICE_TYPE[s.n],
         "description": s.desc,
         "provider": { "@id": "https://vlbuilds.com/#organization" },
         "areaServed": ["PT", "NL", "BR"],
