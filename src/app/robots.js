@@ -1,7 +1,7 @@
 export default function robots() {
   return {
     rules: [
-      { userAgent: '*', allow: '/' },
+      { userAgent: '*', allow: '/', disallow: '/obrigado' },
       // AI search/retrieval — permitir (não treino)
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
