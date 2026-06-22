@@ -285,8 +285,8 @@ function StatsSection({ t }) {
           border: `1px solid ${BORDER}`,
         }}>
           {t.stats.map((s, i) => (
-            <StaggerItem key={i} variant="pop">
-              <div style={{ background: BG, padding: '40px 32px', textAlign: 'center' }}>
+            <StaggerItem key={i} variant="pop" style={{ display: 'flex' }}>
+              <div style={{ flex: 1, background: BG, padding: '40px 32px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 4.5rem)', letterSpacing: '-0.04em', color: FG, lineHeight: 1, marginBottom: 8 }}>{s.val}</div>
                 <div style={{ fontFamily: BODY, fontSize: 12, color: MUTED, letterSpacing: '0.05em', textTransform: 'uppercase' }}>{s.label}</div>
               </div>
