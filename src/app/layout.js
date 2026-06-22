@@ -21,16 +21,44 @@ const dmSans = DM_Sans({
 // og:locale segue a língua detetada por IP (cf-ipcountry via middleware).
 const OG_LOCALE = { pt: 'pt_PT', 'pt-BR': 'pt_BR', en: 'en_US', nl: 'nl_NL' };
 
+// Metadados por idioma — público-alvo (não localização). Ver spec 2026-06-22-geo-keywords-copy.
+const META = {
+  pt: {
+    title: 'Criação de Sites, Ferramentas Digitais e IA para Portugal — VL Builds',
+    description: 'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel e SEO para Portugal.',
+    ogTitle: 'VL Builds — Sites, Ferramentas Digitais e IA para Portugal',
+    ogDescription: 'Transforme as suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.',
+  },
+  'pt-BR': {
+    title: 'Criação de Sites, Ferramentas Digitais e IA para o Brasil — VL Builds',
+    description: 'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO para o Brasil.',
+    ogTitle: 'VL Builds — Sites, Ferramentas Digitais e IA para o Brasil',
+    ogDescription: 'Transforme suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.',
+  },
+  en: {
+    title: 'Websites, Digital Tools & AI Solutions — VL Builds',
+    description: 'Freelance developer building websites, digital tools, AI solutions, spreadsheets and SEO for clients across Europe.',
+    ogTitle: 'VL Builds — Websites, Digital Tools & AI Solutions',
+    ogDescription: 'Turn your ideas into digital products. Websites, tools and AI solutions, delivered with professional quality.',
+  },
+  nl: {
+    title: 'Websites, Digitale Tools en AI voor Nederland — VL Builds',
+    description: 'Freelancer voor websites, digitale tools, AI-oplossingen, spreadsheets en SEO voor Nederland.',
+    ogTitle: 'VL Builds — Websites, Digitale Tools en AI voor Nederland',
+    ogDescription: 'Verander je ideeën in digitale producten. Websites, tools en AI-oplossingen, geleverd met professionele kwaliteit.',
+  },
+};
+
 export async function generateMetadata() {
   const hdrs   = await headers();
   const locale = hdrs.get('x-vl-locale') || 'en';
   const ogLocale = OG_LOCALE[locale] || 'pt_PT';
+  const m = META[locale] || META.en;
 
   return {
-    title: 'VL Builds — Criação de Sites, Ferramentas Digitais e IA',
+    title: m.title,
     metadataBase: new URL('https://vlbuilds.com'),
-    description:
-      'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO. Entrega rápida e sem enrolação.',
+    description: m.description,
     authors: [{ name: 'Vitor' }],
     alternates: {
       canonical: 'https://vlbuilds.com',
@@ -40,8 +68,8 @@ export async function generateMetadata() {
       apple: '/logo-site.png',
     },
     openGraph: {
-      title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
-      description: 'Transforme suas ideias em produtos digitais.',
+      title: m.ogTitle,
+      description: m.ogDescription,
       type: 'website',
       locale: ogLocale,
       alternateLocale: Object.values(OG_LOCALE).filter((l) => l !== ogLocale),
@@ -50,8 +78,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'VL Builds — Sites, Ferramentas e Soluções com IA',
-      description: 'Transforme suas ideias em produtos digitais.',
+      title: m.ogTitle,
+      description: m.ogDescription,
       images: ['/og-image.jpg'],
     },
   };

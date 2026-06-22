@@ -19,7 +19,7 @@ export const translations = {
     hero: {
       badge:    'Disponível para projetos',
       headline: ['Ideias que viram', 'produto.'],
-      body:     'Criação de sites, ferramentas digitais e soluções com IA — entregues com qualidade profissional.',
+      body:     'Criação de sites, ferramentas digitais e soluções com IA para Portugal — entregues com qualidade profissional.',
       btnStart: 'Começar projeto',
       btnWork:  'Ver trabalhos →',
     },
@@ -155,7 +155,7 @@ export const translations = {
     hero: {
       badge:    'Aberto para projetos',
       headline: ['Ideias que viram', 'produto.'],
-      body:     'Criação de sites, ferramentas digitais e soluções com IA — entregues com qualidade profissional.',
+      body:     'Criação de sites, ferramentas digitais e soluções com IA para o Brasil — entregues com qualidade profissional.',
       btnStart: 'Começar projeto',
       btnWork:  'Ver trabalhos →',
     },
@@ -291,7 +291,7 @@ export const translations = {
     hero: {
       badge:    'Available for projects',
       headline: ['Ideas that become', 'products.'],
-      body:     'Websites, tools, AI, spreadsheets, SEO and paid traffic — built in Portugal, delivered fast and with no nonsense.',
+      body:     'Websites, tools, AI, spreadsheets, SEO and paid traffic for clients across Europe — delivered with professional quality.',
       btnStart: 'Start a project',
       btnWork:  'View work →',
     },
@@ -427,7 +427,7 @@ export const translations = {
     hero: {
       badge:    'Beschikbaar voor projecten',
       headline: ['Ideeën die worden', 'producten.'],
-      body:     'Websites, tools, AI, spreadsheets, SEO en betaald verkeer — geleverd met professionele kwaliteit, snel en zonder gedoe.',
+      body:     'Websites, tools, AI, spreadsheets, SEO en betaald verkeer voor Nederland — geleverd met professionele kwaliteit.',
       btnStart: 'Project starten',
       btnWork:  'Werk bekijken →',
     },
