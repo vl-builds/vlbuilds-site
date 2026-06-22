@@ -186,6 +186,8 @@ export default async function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
+        {/* preload do hero (LCP above-the-fold; tema dark é o padrão) */}
+        <link rel="preload" as="image" href="/hero-dark.webp" fetchPriority="high" />
         {/* aplica tema salvo antes da pintura — evita flash */}
         <script dangerouslySetInnerHTML={{__html:
           "(function(){try{var t=localStorage.getItem('vl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();"
