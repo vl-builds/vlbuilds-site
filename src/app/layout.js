@@ -26,25 +26,25 @@ const OG_LOCALE = { pt: 'pt_PT', 'pt-BR': 'pt_BR', en: 'en_US', nl: 'nl_NL' };
 const META = {
   pt: {
     title: 'Criação de Sites, Ferramentas Digitais e IA para Portugal — VL Builds',
-    description: 'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel e SEO para Portugal.',
+    description: 'Criação de sites, ferramentas digitais e soluções com IA para Portugal. Entrega em 5–7 dias, revisões ilimitadas até aprovar e código 100% seu.',
     ogTitle: 'VL Builds — Sites, Ferramentas Digitais e IA para Portugal',
     ogDescription: 'Transforme as suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.',
   },
   'pt-BR': {
     title: 'Criação de Sites, Ferramentas Digitais e IA para o Brasil — VL Builds',
-    description: 'Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO para o Brasil.',
+    description: 'Criação de sites, ferramentas digitais e soluções com IA para o Brasil. Entrega em 5–7 dias, revisões ilimitadas até aprovar e código 100% seu.',
     ogTitle: 'VL Builds — Sites, Ferramentas Digitais e IA para o Brasil',
     ogDescription: 'Transforme suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.',
   },
   en: {
     title: 'Websites, Digital Tools & AI Solutions — VL Builds',
-    description: 'Freelance developer building websites, digital tools, AI solutions, spreadsheets and SEO for clients across Europe.',
+    description: 'Websites, digital tools and AI solutions for clients across Europe. Delivered in 5–7 days, with unlimited revisions and 100% your code.',
     ogTitle: 'VL Builds — Websites, Digital Tools & AI Solutions',
     ogDescription: 'Turn your ideas into digital products. Websites, tools and AI solutions, delivered with professional quality.',
   },
   nl: {
     title: 'Websites, Digitale Tools en AI voor Nederland — VL Builds',
-    description: 'Freelancer voor websites, digitale tools, AI-oplossingen, spreadsheets en SEO voor Nederland.',
+    description: 'Websites, digitale tools en AI-oplossingen voor Nederland. Geleverd in 5–7 werkdagen, met onbeperkte revisies en 100% jouw code.',
     ogTitle: 'VL Builds — Websites, Digitale Tools en AI voor Nederland',
     ogDescription: 'Verander je ideeën in digitale producten. Websites, tools en AI-oplossingen, geleverd met professionele kwaliteit.',
   },
@@ -60,6 +60,9 @@ const HREFLANG = {
   'en': 'https://vlbuilds.com',
   'x-default': 'https://vlbuilds.com',
 };
+
+// Data da última revisão de conteúdo relevante (estática — atualizar manualmente). Usada no dateModified do WebPage.
+const SITE_MODIFIED = '2026-06-23';
 
 // serviceType (categoria Schema.org estável, EN) por número de serviço — ver i18n services.items.
 const SERVICE_TYPE = {
@@ -153,6 +156,7 @@ export default async function RootLayout({ children }) {
         "name": m.ogTitle,
         "description": m.description,
         "inLanguage": htmlLang,
+        "dateModified": SITE_MODIFIED,
         "isPartOf": { "@id": "https://vlbuilds.com/#website" },
       },
       ...t.services.items.map((s) => ({
