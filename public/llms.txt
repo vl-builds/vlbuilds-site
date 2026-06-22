@@ -1,28 +1,63 @@
 # VL Builds
 
-> Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel, SEO e tráfego pago. Baseado em Portugal, serve clientes em PT, NL e BR.
+> Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel, SEO e tráfego pago. Atende clientes em Portugal, no Brasil e na Holanda (e internacionalmente).
 
 ## Serviços
 
 - **Criação de Sites**: Landing pages, portfólios e sites institucionais modernos, rápidos e prontos para converter.
 - **Ferramentas Digitais**: Apps web e automações que resolvem problemas reais e poupam horas do seu dia.
 - **Soluções com IA**: Chatbots, automações inteligentes e integrações com GPT/Claude.
-- **Planilhas Excel**: Dashboards, relatórios automáticos e sistemas de controle no Excel ou Google Sheets.
-- **Tráfego Pago**: Campanhas no Google Ads e Meta Ads criadas para maximizar o ROI.
-- **SEO & Presença Digital**: Otimização para o Google; páginas que aparecem nas buscas certas.
+- **Folhas de Cálculo / Excel**: Dashboards, relatórios automáticos e sistemas de controlo no Excel ou Google Sheets.
+- **Tráfego Pago**: Campanhas no Google Ads e Meta Ads criadas para maximizar o retorno do investimento.
+- **SEO & Presença Digital**: Otimização para o Google; páginas que aparecem nas pesquisas certas e trazem clientes sem pagar por clique.
 
-## Preços (Portugal)
+## Preços (valores "a partir de"; variam por país)
 
-- Essencial: a partir de 350€
-- Profissional: a partir de 700€
-- Completo: a partir de 1400€
+- Portugal (EUR): Essencial €200 · Profissional €520 · Completo €790
+- Holanda (EUR): Essencial €290 · Profissional €690 · Completo €1.090
+- Brasil (BRL): Essencial R$560 · Profissional R$1.390 · Completo R$2.190
+
+Pagamento: 50% no início e 50% na entrega. Revisões ilimitadas até aprovação. Não inclui alojamento, domínio nem verba de anúncios.
+
+## Portfólio
+
+- Rota Legal (https://rotalegal.pro): plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente.
+- DeliveryBase (https://deliverybase.pro): app web para estafetas na Holanda acompanharem ganhos semanais.
+- Henry Zuca (https://henryzuca.com): landing page de alta conversão para um curso de delivery na Europa.
 
 ## Contacto
 
 - Email: contact@vlbuilds.com
 - Website: https://vlbuilds.com
 - Instagram: https://www.instagram.com/vl.builds/
+- GitHub: https://github.com/vl-builds
 
-## Garantia
+---
 
-Revisões ilimitadas até aprovação. 50% adiantamento, 50% na entrega.
+# VL Builds (English)
+
+> Freelance developer building websites, digital tools, AI solutions, spreadsheets, SEO and paid traffic. Serving clients in Portugal, Brazil and the Netherlands (and internationally).
+
+## Services
+
+- **Website Design**: Landing pages, portfolios and modern business websites — fast and built to convert.
+- **Digital Tools**: Custom web apps and automations that solve real problems and save hours.
+- **AI Solutions**: Chatbots, smart automations and GPT/Claude integrations.
+- **Excel & Google Sheets**: Dashboards, automated reports and control systems.
+- **Paid Traffic**: Google Ads and Meta Ads campaigns built to maximise ROI.
+- **SEO & Digital Presence**: On-page SEO and organic visibility that brings customers without paying per click.
+
+## Pricing (starting "from"; varies by country)
+
+- Portugal (EUR): Essential €200 · Professional €520 · Complete €790
+- Netherlands (EUR): Essential €290 · Professional €690 · Complete €1,090
+- Brazil (BRL): Essential R$560 · Professional R$1,390 · Complete R$2,190
+
+Payment: 50% upfront, 50% on delivery. Unlimited revisions until approval. Hosting, domain and ad budget not included.
+
+## Contact
+
+- Email: contact@vlbuilds.com
+- Website: https://vlbuilds.com
+- Instagram: https://www.instagram.com/vl.builds/
+- GitHub: https://github.com/vl-builds

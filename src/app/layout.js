@@ -2,6 +2,7 @@ import './globals.css';
 import { headers } from 'next/headers';
 import { Space_Grotesk, DM_Sans } from 'next/font/google';
 import ClientProviders from './components/ClientProviders';
+import { translations } from '../i18n';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -49,6 +50,17 @@ const META = {
   },
 };
 
+// hreflang auto-referencial: site multi-idioma servido numa URL única por geo-IP.
+// Sem variantes de URL por locale, declaramos as 4 línguas + x-default a apontar
+// para a homepage, para o Google não tratar a página como monolíngue.
+const HREFLANG = {
+  'pt-PT': 'https://vlbuilds.com',
+  'pt-BR': 'https://vlbuilds.com',
+  'nl': 'https://vlbuilds.com',
+  'en': 'https://vlbuilds.com',
+  'x-default': 'https://vlbuilds.com',
+};
+
 export async function generateMetadata() {
   const hdrs   = await headers();
   const locale = hdrs.get('x-vl-locale') || 'en';
@@ -62,6 +74,7 @@ export async function generateMetadata() {
     authors: [{ name: 'Vitor' }],
     alternates: {
       canonical: 'https://vlbuilds.com',
+      languages: HREFLANG,
     },
     icons: {
       icon: '/logo-site.png',
@@ -93,6 +106,65 @@ export default async function RootLayout({ children }) {
   // lang do <html> acompanha a língua detectada (SEO + acessibilidade)
   const htmlLang = { pt: 'pt-PT', 'pt-BR': 'pt-BR', nl: 'nl', en: 'en' }[locale] || 'en';
 
+  // JSON-LD localizado: Service e FAQ vêm das traduções (i18n) e WebPage do mapa META,
+  // alinhados com o idioma efetivamente renderizado (evita schema PT em páginas NL/EN).
+  const t = translations[locale] || translations.en;
+  const m = META[locale] || META.en;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vlbuilds.com/#organization",
+        "name": "VL Builds",
+        "url": "https://vlbuilds.com",
+        "logo": { "@type": "ImageObject", "url": "https://vlbuilds.com/logo-site.png" },
+        "email": "contact@vlbuilds.com",
+        "areaServed": ["PT", "NL", "BR"],
+        "sameAs": [
+          "https://www.instagram.com/vl.builds/",
+          "https://github.com/vl-builds",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vlbuilds.com/#website",
+        "url": "https://vlbuilds.com",
+        "name": "VL Builds",
+        "inLanguage": ["pt-PT", "pt-BR", "nl", "en"],
+        "publisher": { "@id": "https://vlbuilds.com/#organization" },
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://vlbuilds.com/#webpage",
+        "url": "https://vlbuilds.com",
+        "name": m.ogTitle,
+        "description": m.description,
+        "inLanguage": htmlLang,
+        "isPartOf": { "@id": "https://vlbuilds.com/#website" },
+      },
+      ...t.services.items.map((s) => ({
+        "@type": "Service",
+        "@id": `https://vlbuilds.com/#service-${s.n}`,
+        "name": s.titulo,
+        "description": s.desc,
+        "provider": { "@id": "https://vlbuilds.com/#organization" },
+        "areaServed": ["PT", "NL", "BR"],
+        "inLanguage": htmlLang,
+      })),
+      {
+        "@type": "FAQPage",
+        "@id": "https://vlbuilds.com/#faq",
+        "inLanguage": htmlLang,
+        "mainEntity": t.faq.items.map((f) => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": { "@type": "Answer", "text": f.a },
+        })),
+      },
+    ],
+  };
+
   return (
     <html
       lang={htmlLang}
@@ -107,115 +179,7 @@ export default async function RootLayout({ children }) {
         }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Organization",
-                "@id": "https://vlbuilds.com/#organization",
-                "name": "VL Builds",
-                "url": "https://vlbuilds.com",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://vlbuilds.com/logo-site.png"
-                },
-                "email": "contact@vlbuilds.com",
-                "areaServed": ["PT", "NL", "BR"],
-                "sameAs": [
-                  "https://www.instagram.com/vl.builds/",
-                  "https://github.com/vl-builds"
-                ]
-              },
-              {
-                "@type": "WebSite",
-                "@id": "https://vlbuilds.com/#website",
-                "url": "https://vlbuilds.com",
-                "name": "VL Builds",
-                "publisher": { "@id": "https://vlbuilds.com/#organization" }
-              },
-              {
-                "@type": "WebPage",
-                "@id": "https://vlbuilds.com/#webpage",
-                "url": "https://vlbuilds.com",
-                "name": "VL Builds — Sites, Ferramentas e Soluções com IA",
-                "description": "Agência especializada em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e apresentações profissionais.",
-                "isPartOf": { "@id": "https://vlbuilds.com/#website" }
-              },
-              {
-                "@type": "Service",
-                "name": "Criação de Sites",
-                "provider": { "@id": "https://vlbuilds.com/#organization" },
-                "description": "Landing pages, portfólios e sites institucionais modernos, rápidos e prontos para converter.",
-                "areaServed": ["PT", "NL", "BR"]
-              },
-              {
-                "@type": "Service",
-                "name": "Ferramentas Digitais",
-                "provider": { "@id": "https://vlbuilds.com/#organization" },
-                "description": "Apps web e automações que resolvem problemas reais e poupam horas do seu dia.",
-                "areaServed": ["PT", "NL", "BR"]
-              },
-              {
-                "@type": "Service",
-                "name": "Soluções com IA",
-                "provider": { "@id": "https://vlbuilds.com/#organization" },
-                "description": "Chatbots, automações inteligentes e integrações com GPT/Claude que trabalham por você.",
-                "areaServed": ["PT", "NL", "BR"]
-              },
-              {
-                "@type": "Service",
-                "name": "SEO & Presença Digital",
-                "provider": { "@id": "https://vlbuilds.com/#organization" },
-                "description": "Otimização para o Google: páginas empresariais que aparecem nas buscas certas.",
-                "areaServed": ["PT", "NL", "BR"]
-              },
-              {
-                "@type": "FAQPage",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "Qual o prazo de entrega?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Sites simples saem em 5–7 dias úteis. Projetos maiores têm cronograma definido no briefing."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Como funciona o pagamento?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "50% na aprovação do briefing e 50% na entrega final."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "O código fica comigo?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Sim, 100%. Você recebe todo o código-fonte. Sem lock-in."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Há suporte após a entrega?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Sim, ofereço suporte pós-entrega e pacotes de manutenção mensal."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Trabalha com orçamento pequeno?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Me conta o que você precisa e encontramos o melhor formato."
-                    }
-                  }
-                ]
-              }
-            ]
-          })}}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body><ClientProviders initialMarket={market} initialLocale={locale}>{children}</ClientProviders></body>
