@@ -2,6 +2,8 @@
 
 > Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel, SEO e tráfego pago. Atende clientes em Portugal, no Brasil e na Holanda (e internacionalmente).
 
+_Última atualização: 2026-06-23_
+
 ## Serviços
 
 - **Criação de Sites**: Landing pages, portfólios e sites institucionais modernos, rápidos e prontos para converter.
@@ -24,6 +26,14 @@ Pagamento: 50% no início e 50% na entrega. Revisões ilimitadas até aprovaçã
 - Rota Legal (https://rotalegal.pro): plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente.
 - DeliveryBase (https://deliverybase.pro): app web para estafetas na Holanda acompanharem ganhos semanais.
 - Henry Zuca (https://henryzuca.com): landing page de alta conversão para um curso de delivery na Europa.
+
+## Perguntas frequentes
+
+- **Prazo de entrega:** landing pages em 5–7 dias úteis; sites de 3–5 páginas em 10–15 dias; projetos maiores com cronograma definido no briefing. O prazo conta após o pagamento da entrada de 50%.
+- **Pagamento:** 50% no início e 50% na entrega, depois de validar o resultado. Valores "a partir de"; não inclui alojamento, domínio nem verba de anúncios.
+- **Código:** recebe 100% do código-fonte, sem lock-in; pode alojar onde quiser e passar a outro programador a qualquer momento.
+- **Suporte:** período de acertos sem custo após a entrega + pacotes de manutenção mensal opcionais, sem fidelização.
+- **Orçamentos pequenos:** sim — encontramos o melhor formato para o seu ponto de partida, que pode crescer por etapas.
 
 ## Contacto
 
@@ -54,6 +64,14 @@ Pagamento: 50% no início e 50% na entrega. Revisões ilimitadas até aprovaçã
 - Brazil (BRL): Essential R$560 · Professional R$1,390 · Complete R$2,190
 
 Payment: 50% upfront, 50% on delivery. Unlimited revisions until approval. Hosting, domain and ad budget not included.
+
+## FAQ
+
+- **Delivery time:** landing pages in 5–7 business days; 3–5 page sites in 10–15 days; larger projects on a timeline set in the briefing. The clock starts after the 50% deposit.
+- **Payment:** 50% upfront, 50% on delivery after you review the result. Prices are "from"; hosting, domain and ad budget not included.
+- **Code ownership:** you receive 100% of the source code, no lock-in; host it anywhere and hand it to any developer at any time.
+- **Support:** a free fine-tuning window after delivery, plus optional monthly maintenance packages, no lock-in.
+- **Small budgets:** yes — we find the best format for your starting point, which can grow in stages.
 
 ## Contact
 
