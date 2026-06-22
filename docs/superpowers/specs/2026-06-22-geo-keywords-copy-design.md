@@ -12,6 +12,7 @@
 ## Decisões tomadas (brainstorming)
 
 1. Mercado-alvo: **os 3 por igual** (PT, BR, NL), EN internacional.
+   - **Lógica de público, não de localização:** o freelancer **vive na Holanda** e **atende clientes** dos vários mercados. Nunca alegar residência ("em Portugal"). Usar a fórmula **"para Portugal / para o Brasil / voor Nederland"** (atende o mercado + mantém o nome do país como keyword). EN sem país específico: "for clients across Europe".
 2. H1 do hero: **manter** "Ideias que viram produto." (marca). Keywords entram à volta.
 3. Badge do hero: **manter** "Disponível para projetos" (sinal de conversão). Sem keywords no badge.
 4. M1 (refactor Server Component): **descartado** — benefício de SEO marginal.
@@ -25,27 +26,27 @@
 Copy proposto (final, pronto a implementar):
 
 ### pt (Portugal)
-- **title:** `Criação de Sites, Ferramentas Digitais e IA em Portugal — VL Builds`
-- **description:** `Freelancer em Portugal especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel e SEO.`
-- **og:title:** `VL Builds — Sites, Ferramentas Digitais e IA em Portugal`
+- **title:** `Criação de Sites, Ferramentas Digitais e IA para Portugal — VL Builds`
+- **description:** `Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, folhas de cálculo Excel e SEO para Portugal.`
+- **og:title:** `VL Builds — Sites, Ferramentas Digitais e IA para Portugal`
 - **og:description:** `Transforme as suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.`
 
 ### pt-BR (Brasil)
-- **title:** `Criação de Sites, Ferramentas Digitais e IA no Brasil — VL Builds`
+- **title:** `Criação de Sites, Ferramentas Digitais e IA para o Brasil — VL Builds`
 - **description:** `Freelancer especializado em criação de sites, ferramentas digitais, soluções com IA, planilhas Excel e SEO para o Brasil.`
-- **og:title:** `VL Builds — Sites, Ferramentas Digitais e IA no Brasil`
+- **og:title:** `VL Builds — Sites, Ferramentas Digitais e IA para o Brasil`
 - **og:description:** `Transforme suas ideias em produtos digitais. Sites, ferramentas e soluções com IA, entregues com qualidade profissional.`
 
 ### en (internacional)
 - **title:** `Websites, Digital Tools & AI Solutions — VL Builds`
-- **description:** `Freelance developer building websites, digital tools, AI solutions, spreadsheets and SEO. Based in Portugal.`
+- **description:** `Freelance developer building websites, digital tools, AI solutions, spreadsheets and SEO for clients across Europe.`
 - **og:title:** `VL Builds — Websites, Digital Tools & AI Solutions`
 - **og:description:** `Turn your ideas into digital products. Websites, tools and AI solutions, delivered with professional quality.`
 
 ### nl (Nederland)
-- **title:** `Websites, Digitale Tools en AI in Nederland — VL Builds`
-- **description:** `Freelancer voor websites, digitale tools, AI-oplossingen, spreadsheets en SEO in Nederland.`
-- **og:title:** `VL Builds — Websites, Digitale Tools en AI in Nederland`
+- **title:** `Websites, Digitale Tools en AI voor Nederland — VL Builds`
+- **description:** `Freelancer voor websites, digitale tools, AI-oplossingen, spreadsheets en SEO voor Nederland.`
+- **og:title:** `VL Builds — Websites, Digitale Tools en AI voor Nederland`
 - **og:description:** `Verander je ideeën in digitale producten. Websites, tools en AI-oplossingen, geleverd met professionele kwaliteit.`
 
 `twitter.title`/`twitter.description` seguem os valores de `og` do mesmo locale.
@@ -54,10 +55,10 @@ Copy proposto (final, pronto a implementar):
 
 Manter `hero.headline` e `hero.badge` intactos. Atualizar `hero.body` por idioma para incluir país + keywords naturalmente:
 
-- **pt:** `Criação de sites, ferramentas digitais e soluções com IA em Portugal — entregues com qualidade profissional.`
-- **pt-BR:** `Criação de sites, ferramentas digitais e soluções com IA no Brasil — entregues com qualidade profissional.`
-- **en:** `Websites, tools, AI, spreadsheets, SEO and paid traffic — built in Portugal.`
-- **nl:** `Websites, tools, AI, spreadsheets, SEO en betaald verkeer in Nederland — geleverd met professionele kwaliteit.`
+- **pt:** `Criação de sites, ferramentas digitais e soluções com IA para Portugal — entregues com qualidade profissional.`
+- **pt-BR:** `Criação de sites, ferramentas digitais e soluções com IA para o Brasil — entregues com qualidade profissional.`
+- **en:** `Websites, tools, AI, spreadsheets, SEO and paid traffic for clients across Europe — delivered with professional quality.`
+- **nl:** `Websites, tools, AI, spreadsheets, SEO en betaald verkeer voor Nederland — geleverd met professionele kwaliteit.`
 
 ## Fora de âmbito
 
