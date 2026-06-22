@@ -86,15 +86,15 @@ export const translations = {
       viewProject: 'Ver projeto',
       counterLabel: 'projeto',
       items: [
-        { cat: 'Ferramenta', titulo: 'Rota Legal',                  desc: 'Plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente. Inclui comparador de países e questionário de perfil profissional.', tags: ['Next.js', 'Automação', 'Dados Oficiais'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
-        { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para estafetas na Holanda acompanharem ganhos semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
+        { cat: 'Ferramenta', titulo: 'Rota Legal',                  desc: 'Plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente. Inclui comparador de países e questionário de perfil profissional.', tags: ['Next.js', 'Automação', 'Dados Oficiais'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], metric: '10', metricLabel: 'países europeus', url: 'https://rotalegal.pro' },
+        { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para estafetas na Holanda acompanharem ganhos semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], metric: '2', metricLabel: 'plataformas suportadas', url: 'https://deliverybase.pro' },
         { cat: 'Site',       titulo: 'Henry Zuca',                  desc: 'Landing page de alta conversão para curso de delivery na Europa. FAQ em formato playlist, carrossel de depoimentos e bundle com DeliveryBase + Rota Legal. Vendido via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
       ],
     },
     stats: [
       { val: '100%',   label: 'código próprio' },
       { val: '< 24h',  label: 'tempo de resposta' },
-      { val: '7 dias', label: 'entrega média' },
+      { val: '5–7 dias', label: 'prazo típico' },
       { val: '∞',      label: 'revisões' },
     ],
     guarantee: {
@@ -222,15 +222,15 @@ export const translations = {
       viewProject: 'Ver projeto',
       counterLabel: 'projeto',
       items: [
-        { cat: 'Ferramenta', titulo: 'Rota Legal',                  desc: 'Plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente. Inclui comparador de países e questionário de perfil profissional.', tags: ['Next.js', 'Automação', 'Dados Oficiais'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
-        { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para entregadores na Holanda acompanharem ganhos semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
+        { cat: 'Ferramenta', titulo: 'Rota Legal',                  desc: 'Plataforma de imigração com dados oficiais de 10 países europeus, atualizada mensalmente. Inclui comparador de países e questionário de perfil profissional.', tags: ['Next.js', 'Automação', 'Dados Oficiais'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], metric: '10', metricLabel: 'países europeus', url: 'https://rotalegal.pro' },
+        { cat: 'Ferramenta', titulo: 'DeliveryBase',                desc: 'App web para entregadores na Holanda acompanharem ganhos semanais. Lê PDFs da Thuisbezorgd e Uber Eats, calcula diferenças, metas financeiras e guia completo de impostos holandeses.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], metric: '2', metricLabel: 'plataformas suportadas', url: 'https://deliverybase.pro' },
         { cat: 'Site',       titulo: 'Henry Zuca',                  desc: 'Landing page de alta conversão para curso de delivery na Europa. FAQ em formato playlist, carrossel de depoimentos e bundle com DeliveryBase + Rota Legal. Vendido via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
       ],
     },
     stats: [
       { val: '100%',   label: 'código próprio' },
       { val: '< 24h',  label: 'tempo de resposta' },
-      { val: '7 dias', label: 'entrega média' },
+      { val: '5–7 dias', label: 'prazo típico' },
       { val: '∞',      label: 'revisões' },
     ],
     guarantee: {
@@ -358,15 +358,15 @@ export const translations = {
       viewProject: 'View project',
       counterLabel: 'project',
       items: [
-        { cat: 'Tool',       titulo: 'Rota Legal',                  desc: 'Immigration platform with official data from 10 European countries, updated monthly. Includes a country comparator and a professional profile questionnaire.', tags: ['Next.js', 'Automation', 'Official Data'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
-        { cat: 'Tool',       titulo: 'DeliveryBase',                desc: 'Web app for delivery riders in the Netherlands to track weekly earnings. Reads PDFs from Thuisbezorgd and Uber Eats, calculates discrepancies, manages financial goals and includes a full Dutch tax guide.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
+        { cat: 'Tool',       titulo: 'Rota Legal',                  desc: 'Immigration platform with official data from 10 European countries, updated monthly. Includes a country comparator and a professional profile questionnaire.', tags: ['Next.js', 'Automation', 'Official Data'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], metric: '10', metricLabel: 'European countries', url: 'https://rotalegal.pro' },
+        { cat: 'Tool',       titulo: 'DeliveryBase',                desc: 'Web app for delivery riders in the Netherlands to track weekly earnings. Reads PDFs from Thuisbezorgd and Uber Eats, calculates discrepancies, manages financial goals and includes a full Dutch tax guide.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], metric: '2', metricLabel: 'platforms supported', url: 'https://deliverybase.pro' },
         { cat: 'Website',    titulo: 'Henry Zuca',                  desc: 'High-converting landing page for a delivery-in-Europe course. Playlist-style FAQ, testimonial carousel and a bundle including DeliveryBase + Rota Legal. Sold via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
       ],
     },
     stats: [
       { val: '100%',   label: 'custom code' },
       { val: '< 24h',  label: 'response time' },
-      { val: '7 days', label: 'average delivery' },
+      { val: '5–7 days', label: 'typical timeline' },
       { val: '∞',      label: 'revisions' },
     ],
     guarantee: {
@@ -494,15 +494,15 @@ export const translations = {
       viewProject: 'Bekijk project',
       counterLabel: 'project',
       items: [
-        { cat: 'Tool',         titulo: 'Rota Legal',                  desc: 'Immigratieplatform met officiële gegevens uit 10 Europese landen, maandelijks bijgewerkt. Inclusief landencomparator en vragenlijst voor beroepsprofiel.', tags: ['Next.js', 'Automatisering', 'Officiële Data'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], url: 'https://rotalegal.pro' },
-        { cat: 'Tool',         titulo: 'DeliveryBase',                desc: 'Web-app voor bezorgers in Nederland om wekelijkse inkomsten bij te houden. Leest PDFs van Thuisbezorgd en Uber Eats, berekent loonverschillen, beheert financiële doelen en bevat een complete gids voor Nederlandse belastingen.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], url: 'https://deliverybase.pro' },
+        { cat: 'Tool',         titulo: 'Rota Legal',                  desc: 'Immigratieplatform met officiële gegevens uit 10 Europese landen, maandelijks bijgewerkt. Inclusief landencomparator en vragenlijst voor beroepsprofiel.', tags: ['Next.js', 'Automatisering', 'Officiële Data'], imagens: ['/projetos/rotalegal1.png', '/projetos/rotalegal2.png', '/projetos/rotalegal3.png'], metric: '10', metricLabel: 'Europese landen', url: 'https://rotalegal.pro' },
+        { cat: 'Tool',         titulo: 'DeliveryBase',                desc: 'Web-app voor bezorgers in Nederland om wekelijkse inkomsten bij te houden. Leest PDFs van Thuisbezorgd en Uber Eats, berekent loonverschillen, beheert financiële doelen en bevat een complete gids voor Nederlandse belastingen.', tags: ['Next.js', 'Supabase', 'Hotmart'], imagens: ['/projetos/deliverybase1.png'], metric: '2', metricLabel: 'ondersteunde platformen', url: 'https://deliverybase.pro' },
         { cat: 'Website',      titulo: 'Henry Zuca',                  desc: 'Hoogconverterende landingspagina voor een bezorgcursus in Europa. FAQ in playliststijl, testimonialcarrousel en bundel met DeliveryBase + Rota Legal. Verkoop via Hotmart.', tags: ['Next.js', 'Hotmart', 'Landing Page'], img: 'https://henryzuca.com/imagens/curso-bundle.png', url: 'https://henryzuca.com' },
       ],
     },
     stats: [
       { val: '100%',    label: 'eigen code' },
       { val: '< 24u',   label: 'reactietijd' },
-      { val: '7 dagen', label: 'gemiddelde levering' },
+      { val: '5–7 dagen', label: 'typische levertijd' },
       { val: '∞',       label: 'revisies' },
     ],
     guarantee: {
